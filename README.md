@@ -15,6 +15,18 @@ Example ex-02-richardson should use richardson to solve problem. In that case,
 when running with richardson, I think we hit spatial discretization error
 pretty quickly. See comments from " -help"
 
+===============
+Ben said: 
+From what i can tell, the ustore-dev branch added a feature to allow for global
+refinement at the end of each v cycle. I have another branch that looks like it
+implements the Richardson enhancments and the error estimator. 
+ 
+It's not clear to me if Richardson relies on this ustore-dev branch that allows
+for global refinement, or not.  Probably not, because Ben's richardson branch
+(this one) just calles SetRFactor().  I don't think any special refinement at
+the end of a cycle is needed.
+===============
+
 
 ===============
 Jacob's comment
