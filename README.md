@@ -16,6 +16,18 @@ when running with richardson, I think we hit spatial discretization error
 pretty quickly. See comments from " -help"
 
 ===============
+===============
+
+Last time Master pulled in was commit 
+7a35d4398f2822bc544bd843779b62a52ccd22de 
+(April 13 2017, so a while ago)
+
+The git log for this branch is in the file Branchs_Old_Gitlog
+
+
+===============
+===============
+
 Ben said: 
 From what i can tell, the ustore-dev branch added a feature to allow for global
 refinement at the end of each v cycle. I have another branch that looks like it
@@ -25,12 +37,11 @@ It's not clear to me if Richardson relies on this ustore-dev branch that allows
 for global refinement, or not.  Probably not, because Ben's richardson branch
 (this one) just calles SetRFactor().  I don't think any special refinement at
 the end of a cycle is needed.
-===============
 
 
 ===============
-Jacob's comment
 ===============
+Jacob's comments
 
 Looks like ex-02-adaptive sets the option to get the Richardson estimate and 
 refine based on that. 

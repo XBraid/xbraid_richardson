@@ -1,0 +1,3864 @@
+commit a812af8cf6daf1adb07d7934fea2b61f769e4c6e
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Tue Jul 25 11:40:01 2017 -0400
+
+     Makefile changes
+
+commit 8a4bd3b361fe502546b5187f8e17a0125655a6c6
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Tue Jul 25 10:49:13 2017 -0400
+
+     Clean up pass mostly fixing the naming of the variables in the load balancing code.
+
+commit beb1dbea1ffd8b6a84a6d425ea3cdcbb57a1689d
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Thu Jul 6 16:22:30 2017 -0400
+
+     Bug fixes
+
+commit 49aca755586ab0c01367232c31d0383d4def78c1
+Merge: 5b395dd 5cc085a
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Thu Jul 6 16:06:48 2017 -0400
+
+     Merged in load balancing
+
+commit 5cc085add7b2b458d16a4b8008d80bd46cead0bf
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Wed Jul 5 10:50:54 2017 -0400
+
+     Added the calling function to all status structures. When doing adaptation it is nice to know what function is calling the step status, so that we can complete the error estimation process only one time per iteration.
+
+commit 92625e4cf4233d18bdf2f3ec96d7d2858d212f35
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri Jun 23 14:50:37 2017 -0400
+
+     Picked up a memory error with Valgrind. Recv_buffer is of length size.
+
+commit 510df329bd3aaad3c5cf9a071f5b1d4d61546c7b
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri Jun 23 14:44:08 2017 -0400
+
+     Bug fixes for the Error estimation Functions
+
+commit 5b395dd835bd19bb1e93208b23e84a3a29d76f0b
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri May 5 14:31:53 2017 -0400
+
+     Added the example, and changed WFactors so that they are set \n directly in the core by the user
+
+commit 71b5fbefe75bd6de346803372ff5bf96f406c0fa
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri May 5 09:43:28 2017 -0400
+
+     Reinstating ex-01 from master branch
+
+commit e183f51847a8c0d91f594f6d027600b1b1c78af6
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Mon Apr 17 15:14:04 2017 -0400
+
+     Merged in a commit adding the global access feature. The user can optinally set a global access function that allows full access to the global solution, residuals, rfactors, etc, prior to FRefine. This function can then be used to decide where to refine, or to quit all together
+
+commit dc7432ac5787bd11f29df0558f66b4c42c419241
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Thu May 4 15:57:52 2017 -0400
+
+     First commit with error estimation and richardson extrapolation added.
+
+commit 866ec7384cc992a108aee0dec2b3f6c016014763
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Mon Apr 17 12:17:06 2017 -0400
+
+     Added temporal load balancing
+
+commit 094e58e6d9a94679257775d52789a79398e219e3
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri Apr 14 14:35:07 2017 -0400
+
+     Added in load balancing. Need to test
+
+commit 714b7f7f31fc876ef2280ea400f57932086c1977
+Author: Ben O'Neill <beon9273@colorado.edu>
+Date:   Fri Apr 14 11:27:19 2017 -0400
+
+    Added the communication minimzation feature. When this is set true,
+    the first point on any processor must be a C-point. The idea is that
+    splitting coarse grid intervals up across time processors does not
+    give us anything.
+
+commit 7a35d4398f2822bc544bd843779b62a52ccd22de
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Apr 13 16:50:10 2017 -0700
+
+    Just forgotten a few lines for the access to NLevels
+
+commit 0a43b86645883ddb5d347ce4ffc9a9426dfa3910
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Apr 13 16:42:38 2017 -0700
+
+    Gives access to the total number of levels from Step, Coarsen/Refine
+    and Access user functions through the *status structures.
+
+commit 5fd5c53f9938a003c4f188fdff3a132268f892b6
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Apr 4 11:14:51 2017 -0700
+
+    - Fixed some discrepancies between ex-03, ex-03-serial and driver-diffusion-2D.c
+      regarding how CFL numbers were treated
+    - Fixed a small bug in drive-diffusion-2D regarding how PFMG iterations
+      were tracked and how max-pfmg-iter was enforced (basically, A_idx and level
+      were not equal when skip was used).
+    - Removed the "RDF Hack" that put F-refinement in ex-03.  We now use
+      ex-01-refinement.c for our regression testing of F-refinement
+
+commit 7d3da43e79abebb744bdaa280842429fca54a82f
+Merge: 63a657c afe974f
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Mar 31 16:14:12 2017 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit 63a657c88ca1bed92c3070221d86c366a2c1e30c
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Mar 31 16:13:11 2017 -0700
+
+    Fixed some issues with the CFL computation
+
+commit afe974fca8c7000650c7e6fe643b9f433a7acb69
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jan 25 16:10:17 2017 -0800
+
+    Prevent the use of the option skip and seqsoln simultaneously. Changes associated test.
+
+commit c04422feb32e9b8b2e5fab646531d3a3c5ce01c1
+Merge: fb8389f 42d33f6
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Wed Jan 18 13:15:51 2017 -0800
+
+    Merge pull request #8 in XBRAID/xbraid from fullrefinement-dev to master
+    
+    * commit '42d33f6a72085b70ee38120d5af1e11067142024':
+      Modifies the user manual to reflect modification regarding the removal of the refinement constrain. Also adds the new example in the doc.
+      Updated FRefine() comments
+      Adds regression tests for the ode1D problem with refinement
+      Adds regression test for ex-03 with refinement factor larger that coarsening factor.
+      Modifies ex-03 and associated tests to accept a maximum refinement factor. This way, all test results remain unchanged.
+      Adds option to refine in time the example ex-01 based on LTE.
+      Adds option to the refinement example to limit the refinement factor.
+      Removes the limitation on the refinement factor. It is not limited to the coarsening factor anymore. Adds an example for refinement.
+
+commit 42d33f6a72085b70ee38120d5af1e11067142024
+Merge: 2eeac8c a6133b2
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jan 18 13:08:11 2017 -0800
+
+    Merge branch 'fullrefinement-dev' of ssh://mystash.llnl.gov:7999/xbraid/xbraid into fullrefinement-dev
+
+commit 2eeac8ccba48c3f2b49ba25e621883a57f806b07
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jan 18 13:06:52 2017 -0800
+
+    Modifies the user manual to reflect modification regarding the removal of
+    the refinement constrain. Also adds the new example in the doc.
+
+commit a6133b2b6f09ec04e07f6119f215492d00b3d9d8
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jan 18 10:49:42 2017 -0800
+
+    Updated FRefine() comments
+
+commit 6cad1eec264b18dc1d4c27e360540ef52a1efcaf
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jan 17 10:14:36 2017 -0800
+
+    Adds regression tests for the ode1D problem with refinement
+
+commit f102b1d9dbe7441e452993e64bb27177c550d0b8
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jan 17 09:38:55 2017 -0800
+
+    Adds regression test for ex-03 with refinement factor larger that
+    coarsening factor.
+
+commit f99762002b1eadd33f573663b76a7b9b6bd12569
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jan 17 08:59:51 2017 -0800
+
+    Modifies ex-03 and associated tests to accept a maximum refinement factor.
+    This way, all test results remain unchanged.
+
+commit f050856da4d1daab36aae79188c52a86fbef0c45
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Jan 13 15:28:06 2017 -0800
+
+    Adds option to refine in time the example ex-01 based on LTE.
+
+commit 660ae1909fecfa8bb546835e9358963fa0aa8997
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Jan 13 14:28:50 2017 -0800
+
+    Adds option to the refinement example to limit the refinement factor.
+
+commit a51f460b638e10e71b58f7637dd0be5ec8914403
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Jan 13 14:11:41 2017 -0800
+
+    Removes the limitation on the refinement factor. It is not limited
+    to the coarsening factor anymore. Adds an example for refinement.
+
+commit fb8389fe3301308f21b85c4d5a7be6c5e04a7021
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Dec 13 10:05:57 2016 -0800
+
+    Adds an option to set the level of output-to-file. For now, only one
+    file is created (braid.out.cycle). It can be set to 0 (no output)
+    or to 1 (the cycle is written to the file, default).
+
+commit bd7eee90acf9ec9176b80631a40e29de10738c57
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 5 09:50:32 2016 -0800
+
+    Updated the debugging section in the documentation again, based
+    on some impressions from the tutorial.
+
+commit 2d9f37b2ae03549894e58237a6e7a1ed4a4f9ece
+Author: Jacob Schrider <schroder2@vpnb-user-128-15-245-208.llnl.gov>
+Date:   Sun Dec 4 17:12:35 2016 -0800
+
+    Adding one more bit to the canonical debugging advice section in
+    Introduction.md.
+
+commit 3d53af9f04bec1a9f4348b5baedbb4938aba91ff
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Nov 18 09:58:38 2016 -0800
+
+    One more change for v2.1.0
+
+commit 90d932b0f5eb12a1db665b72136ae41ee78ba0d1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Nov 18 09:48:44 2016 -0800
+
+    Version 2.1.0 Commit
+      Adding a CHANGELOG and a few more documentation tweaks
+
+commit 7924f985b462ec6f69cc96b3196e76b20c76d5a6
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 17 18:04:22 2016 -0800
+
+    Re-wrote some of the users manual for a new release
+
+commit ffe045db3c0dc9e6a9b4699cf1c8aefcc44bc9ec
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 6 16:23:45 2016 -0700
+
+    Updating the new regression tests for the 1D heat equation example.
+
+commit 257e821bcbd2a554918ec82060a058507742617d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Oct 4 17:06:07 2016 -0700
+
+    Adding Simple 1D diffusion example, plus accompanying regression tests.
+    The regression tests need to be run on my tux-box to get the right output
+    to store in the .saved files.  That will come in the next commit.
+
+commit 80352609a35161261e14ec11605bd70d74c54c5c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Oct 3 20:20:27 2016 -0700
+
+    Changed make system so that the sequential option is now enabled with
+      make sequential=yes
+    similar to the other two options
+      make debug=yes|no
+      make valgrind=yes|no
+
+commit b784b865c157bb63cc685dfb965e9a4065445767
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Oct 3 17:07:16 2016 -0700
+
+    Implemented most of ex-02.c, a simple 1D heat equation example.  This
+    will be the main "tutorial" example for showing people things like
+    spatial coarsening and the residual option.
+
+commit 3ed4eca99923e202cf760d61b68c598943c06ec9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Sep 30 16:59:02 2016 -0700
+
+    During the restructuring of the examples and drivers, these
+    viz.py files got left out.
+
+commit dfdf869c6ad7327ed8d8aefda9e19e0eb33d1177
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Sep 30 16:54:48 2016 -0700
+
+    This commit does a major re-working of the structure of the examples and
+    drivers directories.  The idea moving forward is to
+    
+      Only do development with drivers--not examples
+    
+    I've been guilty of mis-using examples, myself.  But, it was leading to
+    things becoming a bit of a mess.
+
+commit a5e041d7cfc83bbeb2036fdeb45f78fbb893e87d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Sep 29 22:20:46 2016 -0700
+
+    Modified ex-01-expanded-f.f90 so that it's style and structure
+    resemble (in so far as possbile) the C version, ex-01-expanded.c
+
+commit 82dc00bcdb14b7004feb799df1132b0ca058e343
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Sep 29 17:04:36 2016 -0700
+
+    Changed some coding style and structure in ex-01-expanded-bdf2 so that
+    it mirrors ex-01 and ex-01-expanded
+
+commit 9bc0d688b6578e776ab01a752d95ab6c04e5c7e6
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Sep 29 15:35:48 2016 -0700
+
+    Issue 6: Added a braid test to test the compatibility of residual
+    and test, that
+       f - Residual( Step(u_{i-1}, f_i), u_{i-1}) \approx 0
+
+commit 0a44d6d75ae4bc52b0c31c9ead0790b9fd4f8a59
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Sep 29 10:15:22 2016 -0700
+
+    Upon realizing that we have yet another ex-01 type implementation
+    of the scalar ODE, I've now re-organized things into four ex-01 drivers
+    
+       ex-01.c                  Simplest example (scalar ODE)
+       ex-01-expanded.c         Same as ex-01.c, but with more Braid options
+       ex-01-expanded-f.f90     Same as ex-01-expanded.c, only in F90
+       ex-01-expanded-bdf2.f90  Same as ex-01-expanded.c, only uses BDF2
+                                and the shell vector
+
+commit def2e1347e0c90089e89813d0b1842f43fbf13cc
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Sep 28 12:50:47 2016 -0700
+
+    Updated examples/ex-01**
+    We now have
+      ex-01.c       Simplest example (scalar ODE)
+      ex-01b.c      Same as ex-01.c, but with more Braid options
+      ex-01b-f.f90  Same as ex-01b.c, only in F90
+
+commit 590836608fcc99a42e39f638681934ef1baf4cdf
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Sep 27 11:37:18 2016 -0700
+
+    update docs.sh regression test, to be more intelligent with its grepping
+    for "error" in the output.
+
+commit 032d1834966b94547118ff27d0849e81299ff32f
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Sep 26 12:11:34 2016 -0700
+
+    Add drive-08.cpp -- a time-dependent elasticity problem using mfem.
+
+commit 464dddc31632e3f73d744e5e87d1177bef58213e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Sat Sep 24 19:39:44 2016 -0700
+
+    A number of small changes regarding the recent updates to the status structure
+    - Changed comments (and docs/*.conf) files so that the doxygen PDF better presents
+      the new status structures
+    - Fixed a couple small bugs, like setting tstart in the C++ interface
+    - Removed comments in _braid_status.c, that were duplicate from braid_status.h
+    - Moved a few things from braid_status.h to _braid_status.h that weren't
+      user interface related
+
+commit 4d3980437ddad09882e368987ab4b56bfbcac4f6
+Merge: 111c213 e582086
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Thu Sep 22 17:06:19 2016 -0700
+
+    Merge pull request #7 in XBRAID/xbraid from status-facto to master
+    
+    * commit 'e582086445bfc2ed25c9afd7bee4edae05556287':
+      Modifies the SetRSpace. Since now core == status, we have to implement this differently (i.e. directly in the SetRSpace)
+      Remove the _braid_DeriveStatusElt, which is replaced by _braid_StatusElt. Also, move a typedef to the appropriate header.
+      Moves all the properties of _braid_Status_struct to the core. Now _braid_Status_struct inherits from _braid_Core_struct.
+      Change the name of the BufferStatus property "size" to "size_buffer"
+      Temporary state with the new header file _braid_status.h, that contains the actual implementation of the _braid_*Status_struct. This step is required for the next step, which will be to merge the _braid_Status_struct  into _braid_Core_struct.
+      Removes the intermediate structure GlobalStatus. Now, all *Status derivate from the main structure _braid_Status so that they can be easily cast between each other. In braid, we only have one braid_Status, the other astatus, bstatus, cstatus and sstatus are the same structure cast into different types.
+      Change the headers and functions of the accessors for the derived *Status to macros. This way, when adding a new parameter in the Status, only only need to implement the global accessor and add one macro call per derived accessor.
+      Modification of the status implementation. We now have one main structure _braid_Status_struct wich is a merge of all the previous *Status. All the other status structures now contain only a pointer to this main status structure. A new structure called _braid_GlobalStatus_struct appears (and also contains only a pointer to the main status structure). This new structure allows the user to access properties that he would normally not be able to access, by casting the *Status given to him by XBraid into this GlobalStatus. All accessors have been implemented, with very few API changes: - for StepStatus, GetTstart becomes GetT for uniformization purposes - for *Status, GetIStop becomes GetTIndex, and always return the index   in ta such that ta[GetTIndex()] == GetT(). This was not consistent   so far (in StepStatus, we had tstop, in AccessStatus, we had t)
+      Change the names of some funciton argument to avoid collision with free()...
+
+commit e582086445bfc2ed25c9afd7bee4edae05556287
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 22 15:58:07 2016 -0700
+
+    Modifies the SetRSpace. Since now core == status, we have to implement
+    this differently (i.e. directly in the SetRSpace)
+
+commit 5cd4eaacf7c87ede58e1f0eda4ba9fb3774b599b
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 22 15:53:40 2016 -0700
+
+    Remove the _braid_DeriveStatusElt, which is replaced by _braid_StatusElt.
+    Also, move a typedef to the appropriate header.
+
+commit 31b185f143892f10a264c7d86ce30839dba33eb2
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 22 11:35:31 2016 -0700
+
+    Moves all the properties of _braid_Status_struct to the core. Now
+    _braid_Status_struct inherits from _braid_Core_struct.
+
+commit 0d9e67e5a417514f3877f0e7802b204616837e0d
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 22 11:03:38 2016 -0700
+
+    Change the name of the BufferStatus property "size" to "size_buffer"
+
+commit b4e0e3c61e715d7aa6ac4b21e80632f938693ced
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 22 10:56:50 2016 -0700
+
+    Temporary state with the new header file _braid_status.h, that contains
+    the actual implementation of the _braid_*Status_struct. This step is
+    required for the next step, which will be to merge the _braid_Status_struct
+     into _braid_Core_struct.
+
+commit fb0d7eba23a24a01d86dcbbae18aa69ad9a3e173
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Mon Sep 19 11:40:17 2016 -0700
+
+    Removes the intermediate structure GlobalStatus. Now, all *Status
+    derivate from the main structure _braid_Status so that they can be
+    easily cast between each other. In braid, we only have one braid_Status,
+    the other astatus, bstatus, cstatus and sstatus are the same structure
+    cast into different types.
+
+commit 3f8752e039ee1e7798200cc53b0aef27aff52dc7
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Sep 16 10:57:50 2016 -0700
+
+    Change the headers and functions of the accessors for the derived
+    *Status to macros. This way, when adding a new parameter in the Status,
+    only only need to implement the global accessor and add one macro
+    call per derived accessor.
+
+commit e1d55931b8ebff6a42316cc10ccd0e46f21ac0c3
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 15 16:52:31 2016 -0700
+
+    Modification of the status implementation. We now have one main structure
+    _braid_Status_struct wich is a merge of all the previous *Status.
+    All the other status structures now contain only a pointer to this
+    main status structure. A new structure called _braid_GlobalStatus_struct
+    appears (and also contains only a pointer to the main status structure).
+    This new structure allows the user to access properties that he would
+    normally not be able to access, by casting the *Status given to him by
+    XBraid into this GlobalStatus.
+    All accessors have been implemented, with very few API changes:
+    - for StepStatus, GetTstart becomes GetT for uniformization purposes
+    - for *Status, GetIStop becomes GetTIndex, and always return the index
+      in ta such that ta[GetTIndex()] == GetT(). This was not consistent
+      so far (in StepStatus, we had tstop, in AccessStatus, we had t)
+    
+    XBraid compiles and pass the tests. But these modifications have not
+    been heavily tested. Note that the c++ wrappers are probably out-to-date
+    and miss some accessors, but should still work.
+
+commit 37b69fbb26125b495cfc34b1e19eddb3981b11df
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Sep 15 15:51:00 2016 -0700
+
+    Change the names of some funciton argument to avoid collision with free()...
+
+commit 111c213cb91a67af21e740e57ce3e66f7ec6b8eb
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Sep 14 17:26:44 2016 -0700
+
+    Removal of extra comma in some functions argument lists, that prevented
+     from compiling the fortran interface of spatial coarsening and
+    refinement. There are still warnings to be addressed.
+
+commit 8f9184f0dd8d25d835fe6453f7e4da4e0fec3c86
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 23 08:36:34 2016 -0700
+
+    Had to change how ex-01f is compiled in the regression test so that
+    the Fortran warnings about the unused app parameter are ignored.  The
+    app has to be a part of the interface (obviously), but for such a simple
+    example, it isn't always used.
+
+commit 31414967d792b9ee6c3e60563bdffb6d4c58b571
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 22 08:56:36 2016 -0700
+
+    Two final changes required for Andrea's regression tests to run
+    from the immediately preceding pull request
+        - add ode1.sh to machine-tux.sh
+        - enable the user defined time grid in the fortran interface
+
+commit 5ced904aa4865e713bc7993492828c5c86882834
+Merge: 191d166 8cb58b6
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Mon Aug 22 08:47:14 2016 -0700
+
+    Merge pull request #6 in XBRAID/xbraid from hessenthaler to master
+    
+    * commit '8cb58b636f33b9e0232dccf2cce20aa46af9a2a7':
+      Forgot to turn off this part of the Fortran interface
+      Last edits before pulling this branch into master
+      Edits related to making a pull request -- cleaned up a few things
+      Added: step_status_get_istop in Fortran interface.
+      Removed commented line.
+      Added: Regression test for ex-01/ex-01f testing the user-defined fine time grid feature. Added: braid_access_status_get_istop in Fortran interface. Bugfix: ex-01f now queries access status to determine filename index as we don't have dt = const, in general.
+      Set preprocessor directive braid_Fortran_TimeGrid to 0 by default
+      Added: Fortran interface to enable user supplied fine time grid. Modified: Pass values by reference so we have interoperability for C/Fortran. Modified: ex-01f now demonstrates how to define a fine time grid. Bugfix: Set initial tgrid function pointer to NULL. Todo: Use macros for passing data to Fortran in braid_TimeGrid_F90_Iface.
+      Introduced an option for the user to supply an initial fine grid. The use of this option is demonstrated in examples/ex-01.c I added an index in AccessStatus/StepStatus to simplify output to files based on time point index value. Since we know the index in braid, this makes it easier for the user to assign a correct file name.
+      Exposed more functions in Fortran interface Added parameters in PrintStats, destroy bstatus
+
+commit 8cb58b636f33b9e0232dccf2cce20aa46af9a2a7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 19 14:49:00 2016 -0700
+
+    Forgot to turn off this part of the Fortran interface
+
+commit b84ab26c1321478cc92bcceb820cd96bbc785b9a
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 19 14:45:43 2016 -0700
+
+    Last edits before pulling this branch into master
+
+commit 9bb85c51403193e9780879e75584a5295eb1d524
+Merge: 90d95df 191d166
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 19 14:11:25 2016 -0700
+
+    Merge branch 'master' into hessenthaler
+    
+    Conflicts:
+            _braid.c
+            braid_status.c
+            braid_status.h
+
+commit 90d95dfe4ee9dd521d44de474c6fc67c6b5d5e96
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 19 13:43:54 2016 -0700
+
+    Edits related to making a pull request -- cleaned up a few things
+
+commit 191d1664e4d62d227eea86c2f6ab7911d5a24154
+Author: Ben O'Neill <oneill10@llnl.gov>
+Date:   Tue Aug 9 09:48:59 2016 -0700
+
+    Bug-Fix: Recv buffer was being used uninitialized on processors where iupper > gupper ( i.e processors with no time points. ), as no message was recieved there.
+
+commit ade6c45b0f6856e9fa974bdc0064f002d050e1c5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 4 15:06:59 2016 -0700
+
+    Updating the access level regression tests for the
+    new access levels 2 and 3.
+
+commit 310b4757ce747791a779180eabad1b44b7f767d8
+Merge: c33b639 843245d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 4 01:00:04 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit 843245d6ce2ab3697b8894dc1fa45f167c8549e8
+Merge: 5b05af7 462a55c
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Wed Aug 3 13:42:48 2016 -0700
+
+    Merge pull request #2 in XBRAID/xbraid from shellvector to master
+    
+    * commit '462a55c45500c17b9993eded035acdb48073bfd2':
+      Adds a comment to describe the problem solved in ex-bdf2
+      Change interface of _braid_UGetIndex. The function now returns two integers. One is the local index if something (shell or vector) is stored or -1 if nothing is stored. The second is a flag indicating the storage status: 0 if it's a full vector, -1 if it's a shell, and -2 if nothing is stored.
+      Following Jacob's suggestion, adds some more explicit comments, rename a variable and correct indentation
+      Adds a verification on the number of my_Access calls for different access level parameter (0 to 3).
+      Adds an example using the shellvector feature. It's a simple 1D linear problem using a BDF2 method. I have added the associated test script and expected results.
+      Adds and modifies comments to reflect the new shell feature and the new access levels
+      Removes tabs and correction of indentation
+      Re-add the access_level variable in braid_Drive that has been removed during merge, but that I still use.
+      Modification of the access_level. Now, we have: - access_level == 0 : do nothing - access_level == 1 : call at the end of the simulation (fine grid) - access_level == 2 : call at the end of each iteration and end of simulation (fine grid only) - access_level == 3 : same as other, plus call in FRestrict, FInterp and FRefine (on all levels).
+      Adds a missing initialization of sfree to NULL when not using shell vectors. Normally this initialization is useless.
+      Correction of two bugs. The first is in FRefine, the array r_ta now as a size of r_npoints+2, to have r_npoints[-1] and r_npoints[r_npoints]. We need these values when doind spatial refinement. The second is in _braid_InitHierarchy, if very few points so that only one level is built, then core.max_levels is not reset to 1 anymore.
+      Bug of missing shell after refining. Now all points from coarse grid  are passed to th new coarse point on refined grid
+      Modifications to use shell vectors when possible. When the shell feature is activated, U Vectors are saved on all points in time ( C- and F-points ).  On C-points, vectors are full, and on F-points only the shell structure is  saved. It is up to the used to define InitShell, CloneShell and FreeShell. I think only full vectors are communicated between processors, so no modification of the *Buffer functions are required. Apparently work with my code...
+      First modifications to take into account the shell structure of braid vectors. Does not modify anything in the algorithm yet.
+
+commit 462a55c45500c17b9993eded035acdb48073bfd2
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Aug 3 10:45:04 2016 -0700
+
+    Adds a comment to describe the problem solved in ex-bdf2
+
+commit e84cee4b742ba38d385188534bae7e6f319b29ca
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Mon Aug 1 11:04:57 2016 -0700
+
+    Change interface of _braid_UGetIndex. The function now returns two integers.
+    One is the local index if something (shell or vector) is stored or -1 if
+    nothing is stored. The second is a flag indicating the storage status:
+    0 if it's a full vector, -1 if it's a shell, and -2 if nothing is stored.
+
+commit 7e7f980635cd84b232f3961d3c2b2b78daeebfb3
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Mon Aug 1 10:16:53 2016 -0700
+
+    Following Jacob's suggestion, adds some more explicit comments,
+    rename a variable and correct indentation
+
+commit d4255bddb8c60fb77c4e13bcfcbfa7f87e3041a6
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Fri Jul 29 11:47:33 2016 -0700
+
+    Added: step_status_get_istop in Fortran interface.
+
+commit fa9518c67245b49ad8a0a8a1c3ad0b7a9c63c338
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Thu Jul 28 17:18:08 2016 -0700
+
+    Removed commented line.
+
+commit 1dd8a58e167405ebb2fa3d135d0edbd3832f89f1
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Thu Jul 28 17:13:38 2016 -0700
+
+    Added: Regression test for ex-01/ex-01f testing the user-defined fine time grid feature.
+    Added: braid_access_status_get_istop in Fortran interface.
+    Bugfix: ex-01f now queries access status to determine filename index as we don't have dt = const, in general.
+
+commit 1862b9094cb8d16cdea81b8c2f6d5ed0f7320333
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Thu Jul 28 09:47:16 2016 -0700
+
+    Set preprocessor directive braid_Fortran_TimeGrid to 0 by default
+
+commit 70d2ae77987cd310ee39044e15004c0225fd1888
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Thu Jul 28 09:37:55 2016 -0700
+
+    Added: Fortran interface to enable user supplied fine time grid.
+    Modified: Pass values by reference so we have interoperability for C/Fortran.
+    Modified: ex-01f now demonstrates how to define a fine time grid.
+    Bugfix: Set initial tgrid function pointer to NULL.
+    Todo: Use macros for passing data to Fortran in braid_TimeGrid_F90_Iface.
+
+commit d13528e590cbc6ee68a55a50d307065f3388f742
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Wed Jul 27 10:53:37 2016 -0700
+
+    Introduced an option for the user to supply an initial fine grid.
+    The use of this option is demonstrated in examples/ex-01.c
+    I added an index in AccessStatus/StepStatus to simplify output to files
+    based on time point index value. Since we know the index in braid,
+    this makes it easier for the user to assign a correct file name.
+    
+    I will work on the Fortran interface for this option next.
+
+commit c33b6391b1f6dadf738591b66e4b0802243ad797
+Merge: df5b1b4 5b05af7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 27 01:00:05 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit c68c00c11dc3300f1055167fdf6673d64256b09c
+Merge: 651136e 5b05af7
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jul 26 08:33:51 2016 -0700
+
+    Merge branch 'master' into shellvector
+
+commit 5b05af7bed3a26a1a2bcbd40e94adc6329b9e069
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jul 26 08:31:13 2016 -0700
+
+    Bug Fix -- Deallocate the BufferStatus object in braid_Destroy.
+
+commit 651136e591dbacc33adf748171fae779ff34d753
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Tue Jul 26 08:21:25 2016 -0700
+
+    Adds a verification on the number of my_Access calls for different
+    access level parameter (0 to 3).
+
+commit 8dbfccbfa00ef793711fccf7e34d3e7e485cee7e
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Mon Jul 25 15:50:28 2016 -0700
+
+    Adds an example using the shellvector feature. It's a simple 1D linear
+    problem using a BDF2 method. I have added the associated test script
+    and expected results.
+
+commit f661b95f0fbeefb4ff4560664887332455dea2e8
+Merge: 82cd542 d8875db
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Mon Jul 25 08:47:10 2016 -0700
+
+    Merge branch 'shellvector' into hessenthaler
+
+commit 82cd5422c262aa18260c96049e54a77be588adf1
+Author: Andreas Hessenthaler <hessenthaler1@llnl.gov>
+Date:   Mon Jul 25 08:27:52 2016 -0700
+
+    Exposed more functions in Fortran interface
+    Added parameters in PrintStats, destroy bstatus
+
+commit d8875dbe2540c73b37ce71ce873a523c0145b82b
+Merge: a58b718 01a8374
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jul 13 16:37:30 2016 -0700
+
+    Merge branch 'master' into shellvector
+
+commit df5b1b47458728b1a8c3a83921d45c97df96f9d8
+Merge: 9f66ae1 01a8374
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 12 01:00:07 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit 01a8374bce7bfd3c367e0b2686411ad7049d6153
+Merge: 751b368 74e8a8e
+Author: Falgout, Rob <falgout2@llnl.gov>
+Date:   Mon Jul 11 12:35:09 2016 -0700
+
+    Merge pull request #5 in XBRAID/xbraid from oneill to master
+    
+    * commit '74e8a8e6721cdcb29e58804a04daca4d4bd4a693':
+      For some reason, the commit I pushed for the buffer status change didnt have this line. It is needed to initialize the buffer status in the core.
+      Bug fix: FRefine stalls if there are more processors than there are new time steps on the new fine grid. Tracked it down to these f_next and f_first values. If a processor has zero time points on the new fine grid then f_next doesnt get initialized. This causes recv_msg and send_msg to be set on that processor even though it have no points
+      Rather specific bug fix. Make it explicit that if nlevels = 1 we should not complete a v cycle.
+
+commit 9f66ae15e06fb85b60abb99f71f42e055292c804
+Merge: 49027fa 751b368
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jul 1 01:00:03 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit 751b368f6666835bf3c3fa09a780009d4055d81a
+Author: Ben O'neill <oneill10@sierra330.llnl.gov>
+Date:   Thu Jun 30 17:25:42 2016 -0700
+
+     Bug Fix -- Initialize the BufferStatus object in the core
+
+commit 49027fa42762eae1f860a22ed34e9ae865d2ec5d
+Merge: d96bddc 8918cb4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jun 30 01:00:06 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit 8918cb40d0956208955dfec8bbdf3d446d847d91
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Wed Jun 29 10:32:22 2016 -0700
+
+    Fixed compiler errors.
+
+commit 74e8a8e6721cdcb29e58804a04daca4d4bd4a693
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Fri Jun 24 12:23:03 2016 -0700
+
+     For some reason, the commit I pushed for the buffer status change didnt have this line. It is needed to initialize the buffer status in the core.
+
+commit 26b8fc1b6bca88204c3d9a6c847078a3bd73c58f
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Thu Jun 23 09:14:07 2016 -0700
+
+     Bug fix: FRefine stalls if there are more processors than there are new time steps on the new fine grid. Tracked it down to these f_next and f_first values. If a processor has zero time points on the new fine grid then f_next doesnt get initialized. This causes recv_msg and send_msg to be set on that processor even though it have no points
+
+commit 22207da346b25a6945bfb70608c57fac62963c9f
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Wed Jun 8 09:56:11 2016 -0700
+
+    Rather specific bug fix. Make it explicit that if nlevels = 1 we should not complete a v cycle.
+    
+    I had an example where FRefinment was completed, but the resulting grid still only had one time level. This caused a seg fault as a V cycle was initialised with only one grid level in time
+
+commit d96bddce25f6821bb4064b7794047f926817d1d8
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jun 3 15:57:49 2016 -0700
+
+    Fixed two bugs regarding the new BufStatus structure.  The regression
+    tests now pass cleanly
+
+commit e8384bb3b12383e1a2e5f04f47ecab8809db5b79
+Merge: a35a804 d287977
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jun 3 14:59:35 2016 -0700
+
+    Merge branch 'oneill' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+    
+    Conflicts:
+            docs/Examples.md
+
+commit d287977464d282671c4083b37a7b131d98770b48
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jun 3 14:53:35 2016 -0700
+
+    Cleaned up a few small things, mostly comments and then
+    changed docs/Examples.md to reflect the new BufStatus structure
+
+commit a35a804ae1cdba9a713c4b6c3eb1d17f0f2e2c10
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jun 3 14:36:44 2016 -0700
+
+    Added a few simple regression tests for the MFEM drivers. These had been
+    missing, but now there's a few checks on the MFEM interface.
+
+commit da05aa7717d838cabc11d629136df2a6cf261efe
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Thu Jun 2 08:04:22 2016 -0700
+
+     frefine --> messagetype
+
+commit fbed16345e020685f58df8f843b1df54d215fa79
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jun 1 16:28:34 2016 -0700
+
+    Minor cosmetic changes.
+
+commit 0f64819c35c6bb878f7a319d7cbb6a1a7d28b247
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Wed Jun 1 11:44:28 2016 -0700
+
+     small bug fixes and comment updates
+
+commit 163a171e4178978541d71ab4e11edd823a434032
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Wed Jun 1 09:03:45 2016 -0700
+
+     Update the examples to agree with the new interface for buf**
+
+commit f7c9fd1f2e9da08dc44d48895376d53a3cce121d
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Tue May 31 16:52:58 2016 -0700
+
+     BufPack now accepts a buffer and status structure with the option on setting the buf_size through a status structure get routine
+
+commit 7840333e8fb25c22d018de7d7c7842bc5f213836
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Tue May 31 15:48:44 2016 -0700
+
+     Fixes based on comments regarding r_space variable. r_space is now set either 0 or 1 based on the user set value in the step status structure. Also changed the logic for when to call space refinment inside the F refine function
+
+commit 010a73773aa29a65485a2f9529f09c725351092c
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Fri May 27 15:34:46 2016 -0700
+
+     Add a buffer status structure -- braid.hpp is untested
+
+commit fc40b639ca149f92586e7a9d3d57ac86053817a4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed May 25 08:52:33 2016 -0700
+
+    Braid version 2.0.0, This commit just updates the docs a little
+
+commit 199b3ba27f9f08cf3fa8272c9bb6dd973ef73b81
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue May 24 22:36:07 2016 -0700
+
+    Updated some documentation.  It still needs work, but it's good enough for the next
+    release.
+
+commit 3f6386d06c692e10840456e51a00e1dace3b4abb
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon May 23 11:37:14 2016 -0700
+
+    Woops...this line got accidentally deleted in the last commit
+
+commit 297de4b41975dd5d426f2f878f68ea08484940c5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon May 23 11:32:54 2016 -0700
+
+    Updated version numbers to 2.0.0
+
+commit 3d85b8f4a04de7cda54fbffd067153f5761f2ec0
+Merge: ad368e2 da9a4df
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri May 20 17:31:29 2016 -0700
+
+    Merge branch 'master' of ssh://mystash.llnl.gov:7999/xbraid/xbraid
+
+commit ad368e247d2a2987b08c4b8eb62ba6b5b34dd32c
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri May 20 17:28:09 2016 -0700
+
+    First pass at modifying the documentation for the next release
+    
+    This changes the function Phi to Step and adds more description (mostly to
+    Example 1) on the new residual, adaptive time refinement, and storage options.
+
+commit da9a4dfd6ecdc25a8febdc0f5ae5354e03a85a8c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri May 20 13:00:55 2016 -0700
+
+    mall updates to create_release.sh
+    - Changing release number to 2.0.0
+    - Changed it to point to stash, and not /usr/casc/hypre/braid/git/braid
+      This was way out-of-date
+
+commit 135c448131f6a70d57ca21a40837196cef2e0de9
+Merge: f392ef5 4856a48
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Fri May 20 12:48:50 2016 -0700
+
+    Merge pull request #3 in XBRAID/xbraid from rebalance-dev-fix to master
+    
+    * commit '4856a48eafd6ec2b11de0d95972634ce61927226':
+      In class MFEMBraidApp, replace the local restriction operators with the local prolongation operators - this is what mfem constructs now.
+      Changed MFEMBraidApp::InitMultilevelApp so it compiles with current MFEM version where the Mesh TWO_LEVEL interface was removed. This code should hopefully be equivalent.
+
+commit 4856a48eafd6ec2b11de0d95972634ce61927226
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Thu May 19 17:01:17 2016 -0700
+
+    In class MFEMBraidApp, replace the local restriction operators with the local
+    prolongation operators - this is what mfem constructs now.
+
+commit 5ac403a7f84a9006c687553b3c43a27328186a17
+Author: Jakub Cerveny <cerveny1@llnl.gov>
+Date:   Fri May 13 16:54:17 2016 -0700
+
+    Changed MFEMBraidApp::InitMultilevelApp so it compiles with current MFEM
+    version where the Mesh TWO_LEVEL interface was removed. This code should
+    hopefully be equivalent.
+
+commit 400228fb7ed367deaea684c3f94805c47e33f8eb
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Thu May 12 10:21:03 2016 -0700
+
+    Set size_ptr prior to calling bufpack such that: size_ptr = 0 @ entry
+    to bufpack indicates the message will be used for completing a time
+    step on the next processor. @entry size_ptr = 1 indicates the message
+    will be used for load balenceing in FRefine.
+    
+    Reason: Far less information is needed when completing a time step
+            than when moving an entire vector to a new processor. In my
+            case each vector saves its entire spatial heirachy of meshes.
+            To complete a time step on the next processor the message only
+            needs to contain the current function and the current mesh. To
+            move an entire vector to a new processor the message must contain
+            the fine grid solution and mesh + all other coarse grid messages.
+
+commit 2820b12b2137d36c80316fa61fcef4321577ff1f
+Author: O'neill <oneill10@mollow.llnl.gov>
+Date:   Thu May 12 09:38:46 2016 -0700
+
+    Added Functionality that allows for spatial refinement following a
+    Vcycle. Currently the user can only complete spatial refinement following
+    a Vcycle if temporal refinement is also completed. Using the StepStatus
+    struct the user can set the flag r_space. Follwing the Vcycle, if refine is
+    turned on, no temporal refinment was completed (globally), and r_space > 0 for
+    some local time step, then the users spatial refinment routine is called at all
+    local time points. An MPI_AllReduce checks to see if spatial refinement was completed
+    on any processor. If yes then the *refined_ptr returns 2 and the Vcycle is repeated, if
+    not, then *refined_ptr returns 0 and braid moves onto the next Vcycle.
+
+commit f392ef5ccd1bbc5efbdeabaf3b136342741ec5fb
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon May 9 15:05:36 2016 -0700
+
+    Moved the additional "hypre" functions from drive-04.cpp to hypre_extra.hpp, so
+    they can be used in other drivers.
+    
+    Added a number of options to drive-05: implicit time stepping; different options
+    for the implicit solver; a switch between second (diffusion) and fourth order
+    dissipation terms; random initialization for the initial vectors, etc.
+    
+    Some formatting edits.
+
+commit f5860c1cc7582bacea279436d005de6f15235f89
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon May 9 14:58:03 2016 -0700
+
+    In the build system, added support for compiling the mfem examples using any
+    external packages that mfem was configured with, e.g. SuiteSparse.
+    
+    Also, iclude makefile.user (if present) from makefile.inc -- this is just
+    another way for users or developers to configure braid without modifying
+    makefile.inc.
+
+commit a58b718b3a9815aa160b90e23a372ef149e4f497
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Apr 22 17:02:59 2016 -0700
+
+    Adds and modifies comments to reflect the new shell feature and the
+    new access levels
+
+commit f5f5e227af9ca04365d8e89de43a33dbc344cbfb
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Apr 22 14:22:56 2016 -0700
+
+    Removes tabs and correction of indentation
+
+commit abbf7b643f5d14fdb7ad510ab58a9130e3bb2180
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Apr 21 14:49:57 2016 -0700
+
+    Re-add the access_level variable in braid_Drive that has been
+    removed during merge, but that I still use.
+
+commit c367734c72bc3375d7644175aa6a051db7d48712
+Merge: a8d6107 0f29050
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Apr 21 14:45:24 2016 -0700
+
+    Merge branch 'master' into shellvector
+    
+    Conflicts:
+            _braid.c
+
+commit a8d6107b833b908821bb4d8d9c703599d998243e
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Apr 21 14:31:40 2016 -0700
+
+    Modification of the access_level. Now, we have:
+    - access_level == 0 : do nothing
+    - access_level == 1 : call at the end of the simulation (fine grid)
+    - access_level == 2 : call at the end of each iteration and end of simulation (fine grid only)
+    - access_level == 3 : same as other, plus call in FRestrict, FInterp and FRefine (on all levels).
+    
+    Also, I have added information in the AccessStatus structure about
+    where the Access function has been called (FInterp, FRestrict, FRefine or FAccess)
+
+commit 0f290500a23f00490670ae97fb6fade79bd8d282
+Merge: c511410 f8b8381
+Author: Schroder, Jacob B <schroder2@llnl.gov>
+Date:   Fri Apr 15 14:19:27 2016 -0700
+
+    Merge pull request #1 in XBRAID/xbraid from braid-mfem-defaults to master
+    
+    * commit 'f8b83812cca50541a8ff8d71fb6e327262b1281b':
+      Updated the defaults in the BraidOptions class to match the BRAID defaults; also added an option to choose relative or absolute braid tolerance.
+
+commit f8b83812cca50541a8ff8d71fb6e327262b1281b
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Thu Apr 14 13:55:56 2016 -0700
+
+    Updated the defaults in the BraidOptions class to match the BRAID defaults;
+    also added an option to choose relative or absolute braid tolerance.
+    
+    In the MFEMBraidApp class, added a method SetRandomInitVectors() that will make
+    the Init() method initialize BraidVectors using random values instead of zeros.
+    
+    Reformatted some long lines in braid.hpp.
+    
+    Updated the defaults in drive-04.cpp and added an options for random initial
+    vectors and for relative/absolute tolerance.
+
+commit c5114109057e89d77ca0f79d4784f395f973e146
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 6 10:30:34 2016 -0700
+
+    Updated drive-05 to print parallel mesh info.
+
+commit c2bb4423270850a941c90adb100b8b427c48f1bd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Apr 5 13:17:08 2016 -0700
+
+    This is a better fix for doing access_level==0 and max_levels==0, which was
+    the case that Veselin found that was buggy.  My previous commit broke the
+    functionality of FRefine(), where you want the coarsest level to be solved
+    sequentially.
+
+commit 8e58531d701ab708d6ee4a93ec88622d2e9196d4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Apr 5 12:46:01 2016 -0700
+
+    Fixed bug with max-levels == 1.  Going to double check with Rob.
+
+commit d5a9b56114031c3dd91f46464f142e7f8eb75624
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Tue Apr 5 12:05:51 2016 -0700
+
+    Clean up drive-04.cpp.
+
+commit f4df528c6058d181be07400ccf46b9e71ad07f51
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Apr 5 10:24:44 2016 -0700
+
+    Added print statement to braid_mfem.hpp to show the number of spatial
+    degrees of freedom on the finest spatial grid.
+
+commit daf6240da3b02a75a1289abfbfa54b96146fddc9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Apr 4 16:40:19 2016 -0700
+
+    Drive-05 will do slightly more intelligent coarsening in space this way.
+    Previously, it had assumed factor of two in time for every spatial coarsening
+    step.  Now, it will use options.cfactor.
+
+commit 79607e644f38fa62def6b19ad274a3e69686ed54
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Mar 31 17:01:08 2016 -0700
+
+    Updated the testing scripts and makefile.inc to accommodate my
+    switch from OpenMPI to MPICH.  If I ever switch tux343 back to OpeMPI,
+    these changes will need to be undone.
+
+commit 5aa8ec54e3efa4cd622faa34709dc8a29c56c649
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Thu Mar 31 15:46:56 2016 -0700
+
+    In drive-04.cpp, add an option to specify the order of the FE space.
+    
+    Also, if the mesh is nurbs convert it to the same FE order.
+
+commit f6bd53dc5813764581923725241db472f3f0beff
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Mar 1 11:32:08 2016 -0800
+
+    Updating comments for '_braid_Drive*' helper functions in braid.c
+    stating that they are local helper functions, not user functions.
+
+commit 39b2885eeb6423180eef02cd4defdf67a7a78cfb
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Mar 1 11:10:32 2016 -0800
+
+    Ticket 17: implemented regression tests in drive-02 for ticket 17.
+       Now testing routines
+         braid_GetSpatialAccuracy
+         braid_GetRNorms
+         braid_StepStatusGetTol
+         braid_StepStatusGetIter
+         braid_StepStatusGetRNorms
+         braid_StepStatusGetOldFineTolx
+         braid_StepStatusSetOldFineTolx
+         braid_StepStatusSetTightFineTolx
+    
+       Note that the Get|Set.*Tolx routines
+       are tested implicitly with the tests on
+       braid_GetSpatialAccuracy
+    
+    Fixed a bug in braid_GetSpatialAccuracy() due to Rob's earlier
+    change to explicitly store rnorms[0] = -1.0 if the skip option is
+    turned on.  Storing in rnorms this way makes sense, but
+    braid_GetSpatialAccuracy() wasn't expecting a -1.0.
+    
+    Added a few more memcheck tests in test/memcheck-tux-jacob.sh
+
+commit e31eea228b6ec0c784d818c09a3ef9f4b1e6b986
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Feb 29 17:05:51 2016 -0800
+
+    Added a significant number of new regression tests covering
+    the new features added and tested since the summer
+      - Skip
+      - user residual
+      - full residual
+      - storage -2, -1, 0, 1
+      - limited F-refine tests using './ex-02 -refine'
+
+commit 74250360451aa4700d8aca25af13a6f8954e2b08
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Feb 29 13:46:31 2016 -0800
+
+    Updated cycleplot.py, figured out how to do dynamic plotting with
+    matplotlib.pyplot.draw().  It's a nice function now.
+
+commit b576bfc2a88b4333e9b0b98268d03da90b5ae532
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Sat Feb 27 21:55:03 2016 -0800
+
+    Updated cycleplot.py to interact with the user a bit better.  The main
+    problem now is that Python is not plotting interactively very well.  To
+    get the plot to refresh, I have to close the plotting window and then re-open it.
+
+commit dd0746ee672e006fae8bbc9bdf6b5c46ec88b51f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Sat Feb 27 21:53:10 2016 -0800
+
+    In makefile.inc,
+    - For sequential turned-off, made the default compilers MPI-based
+    - For sequential turned-on, made the defuault compilers gcc, gfortran
+
+commit 7c8128ad829658188b7df9689f22ef44a9ed2f32
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 17:07:31 2016 -0800
+
+    Added a Python cycle plotting routine, and a few more output
+    values to cycle.out (residual norm and halting tolerance).
+
+commit 5f5a5d8de0f77ff483da5323e084b3c38482a636
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Feb 26 14:36:59 2016 -0800
+
+    Added a 'make sequential=yes' option to 'makefile.inc'.
+    
+    Not all of the examples compile correctly yet with the sequential feature, so
+    some additional work is still needed here.
+
+commit 37f9197f369fe8719641ebdef80ed45df7b63a23
+Merge: 0828185 cd28d82
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Feb 26 13:23:08 2016 -0800
+
+    Merge branch 'master' into shellvector
+
+commit cd28d82ec39c7562a70e9d0ac056bda9c8c39448
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 12:54:19 2016 -0800
+
+    This fixes issue 11, changing util.h|c to _util.h|c
+    These files only contain Braid internal routines and were
+    as such improperly named.
+
+commit 54af7afcbb8464815f76d2900b87aa6cc8abb4ab
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 12:39:50 2016 -0800
+
+    - Cleaned up some of the .cpp drivers regarding unused variables
+    and similar such things.
+    - Added the "skip" option to BraidOptions
+    in the C++ wrapper.
+
+commit e06dba49e489d603361ff4519cd5b916e33fb1f5
+Merge: f373ef6 5f69c5f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 10:02:57 2016 -0800
+
+    Merge branch 'cycle' into master.  The cycle branch has been
+    reasonably well-tested and does a number of new things.
+    - Greatly simplifies the cycling in braid.c::Drive()
+    - Allows for interactive printing of cycle information with
+      _braid_DriveUpdateCycle() to the cycle.outfile which is
+      by default with 'braid.out.cycle'
+    - The cycling information in this file can be plotted with
+      cycleplot.gnuplot file
+    - There is a mpistubs.h|.c for purely serial compilations
+    - New examples: Burger's equation in 1D and the Lorenz attractors
+
+commit 0828185bf12b28e7368bcda6245b3d207a73b987
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Feb 26 10:19:04 2016 -0800
+
+    Adds a missing initialization of sfree to NULL when not using shell
+    vectors. Normally this initialization is useless.
+
+commit 5f69c5f1a2d93706c0e329a4fe2a220156d338e3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 09:59:53 2016 -0800
+
+    Moving the Lorenz and Burgers viz files to consistently named files.
+
+commit 4be5de14e4268795a9f11076bed8cce50e09db82
+Merge: 8909a11 d5cbaf3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 26 09:57:15 2016 -0800
+
+    Merge branch 'bergers' into cycle.  Development of basic Burger's equation
+    example from visit to Hans is finished, merging in this new example.  More
+    features and research into this example is coming, but the basic development
+    is over.
+
+commit d5cbaf3e32ead339a15f2cd1b94f0d0ee51bfde0
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Thu Feb 25 12:50:47 2016 -0800
+
+    Fixed some memory issues in Lorenz example
+
+commit deca94880bc05cf838d21e23fbf19313efa77a42
+Merge: 86aa4a9 340a9a9
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Feb 19 14:15:32 2016 +1100
+
+    Merge branch 'bergers' of tux339:/usr/casc/hypre/braid/git/braid into bergers
+
+commit 86aa4a9cc70a5aef8a3abc01df976b947cfcbedd
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Feb 19 09:28:40 2016 +1100
+
+    First version of a Lorenz attractor example with python viz script.
+
+commit 340a9a9ba8ea42a2b2b06ba4a41ae3a4954fed7d
+Author: Jacob Schroder <schroder2@LOFT-705681a53335.local>
+Date:   Thu Feb 18 18:08:09 2016 +1100
+
+    Alex and I added a linear advection option and properly scaled halting
+    tolerance to ex-burgers.c
+
+commit ac37a7a70ebedc98dcd6f2b3a324671eceee59cd
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-182.llnl.gov>
+Date:   Fri Feb 12 13:57:21 2016 +1100
+
+    Added Alex's implicit Burgers solver, some viscosity and more command line
+    options
+
+commit 940baa1fdc7f57877df18d4407d832a57ede07db
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-106.llnl.gov>
+Date:   Thu Feb 11 14:37:27 2016 +1100
+
+    Updated the Burgers viz.py (and Access in ex-burgers) to
+    to the plotting a little better
+
+commit b18541a0b4f4e5746432fd0fae866939f2f2cddb
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-106.llnl.gov>
+Date:   Thu Feb 11 12:57:05 2016 +1100
+
+    Updated burgers to allow for one-sided interpolation and
+    to let the left and right BCs in space get set from the
+    command line
+
+commit 710512c703d2f9176062566e2a7fafb8f7fcac83
+Merge: 6b1573a 3f81fba
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Feb 10 14:14:41 2016 +1100
+
+    Merge branch 'bergers' of tux339:/usr/casc/hypre/braid/git/braid into bergers
+
+commit 6b1573a97b838748905f326db6166d5e6f3b4060
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Feb 10 14:14:01 2016 +1100
+
+    Fixed a problem with storing and printing the final residual norm
+
+commit 3f81fba7bfa94f6d378617abcdf98c56dcaf1180
+Author: Jacob Schroder <schroder2@dyn-103-35-231-161.its.monash.edu.au>
+Date:   Wed Feb 10 13:41:00 2016 +1100
+
+    Added a few bells and whistles, like making sure grid sizes are powers
+    of two, and made the computation of the flux encapsulated in a function call
+    used in multiple places (this actually fixed a bug that I had computing the flux
+    at the boundaries in my_Step() )
+
+commit 8a28c449d73fd389290000b9836f052e39d479f8
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-247.llnl.gov>
+Date:   Wed Feb 10 12:28:54 2016 +1100
+
+    Fixed error regarding spatial coarsening grids being 2^k +1
+
+commit 0e28e1b707dd015353bd974f7b64f03fab7163b5
+Author: Jacob Schroder <schroder2@LOFT-705681a53335.local>
+Date:   Wed Feb 10 12:18:00 2016 +1100
+
+    Updated burgers with spatial coarsening (still has memory bug, though)
+
+commit 3c612326838bef97f36c81d2cd68569387aacdc7
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-99.llnl.gov>
+Date:   Wed Feb 10 09:07:08 2016 +1100
+
+    Made ex-burgers and the accompanying viz.py a little more user
+    friendly
+
+commit 453cc61f3ddbcff272e3e5c3d8100bf3151a8602
+Author: Jacob Schroder <schroder2@dyn-103-35-230-62.its.monash.edu.au>
+Date:   Tue Feb 9 14:36:34 2016 +1100
+
+    ex-burgers is (probably) correct for a single level method
+
+commit 545aa298149dd2e180d32f4376d7fb448a4f9392
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 11:47:57 2016 +1100
+
+    Fixed one more memory bug
+
+commit 551df3d96323959cbe59589ba3649e1dc5e5e858
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 11:45:52 2016 +1100
+
+    Changed time steps to 40 and fixed a couple of bugs
+
+commit 5293366a49df93f34c2bbab1d627e61181a3e7e4
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 11:08:51 2016 +1100
+
+    Some boundary condition fix ups.
+
+commit b5e60d1e3127a133d6a00775860752d58a6f8973
+Merge: 2dd07e7 d103d1d
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 11:04:22 2016 +1100
+
+    Merge branch 'bergers' of tux339:/usr/casc/hypre/braid/git/braid into bergers
+
+commit 2dd07e7d0687347e664e2be2e8fb8548289ca437
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 11:04:06 2016 +1100
+
+    Fixed a few bugs
+
+commit d103d1d9918d6d575523589a91ae3b53f1f27bda
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-144.llnl.gov>
+Date:   Tue Feb 9 10:54:54 2016 +1100
+
+    Fixed a couple bugs in Burgers Step
+
+commit ca96ddb7cff781de47ecc1492db81ff78d1b9a7c
+Merge: 471a7e5 c402b91
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 10:44:26 2016 +1100
+
+    Merge branch 'bergers' of tux339:/usr/casc/hypre/braid/git/braid into bergers
+
+commit 471a7e5b0ab3db041c45f9bf58a91b6b21fd5f67
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 10:44:12 2016 +1100
+
+    Small Makefile change
+
+commit c402b9199e5d0980800bd52b5331d20424f1cd53
+Author: Jacob Schroder <schroder2@vpnb-user-128-15-245-144.llnl.gov>
+Date:   Tue Feb 9 10:42:43 2016 +1100
+
+    adding burgers step function
+
+commit 60913fb26d0762f6aaf8c8fa014d2cc9e1358c63
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 10:31:29 2016 +1100
+
+    First draft of implementation, excluding the Step function
+
+commit 8df99a8e0afdc0b7a83c05cbc2db0ec7aeddf2fe
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 09:29:26 2016 +1100
+
+    Initial shell of burgers example
+
+commit d05917d04d94c96acdb2cde7bbcb7f0266d0e442
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Feb 9 05:48:01 2016 +1100
+
+    Changes to compile and run without MPI
+
+commit 2fb6e636afb04e9f6d11c8cece2fd81856607449
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Feb 3 17:03:11 2016 -0800
+
+    Correction of two bugs. The first is in FRefine, the array r_ta now
+    as a size of r_npoints+2, to have r_npoints[-1] and r_npoints[r_npoints].
+    We need these values when doind spatial refinement. The second is in
+    _braid_InitHierarchy, if very few points so that only one level is built,
+    then core.max_levels is not reset to 1 anymore.
+
+commit 96bc426c2c2bfee5bc4a491fe68d4e3139ce788b
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jan 27 17:19:58 2016 -0800
+
+    Bug of missing shell after refining. Now all points from coarse grid
+     are passed to th new coarse point on refined grid
+
+commit cc38123d021436ea3bfe8c0f0415e918623eb722
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Thu Jan 21 15:14:53 2016 -0800
+
+    Modifications to use shell vectors when possible. When the shell feature
+    is activated, U Vectors are saved on all points in time ( C- and F-points ).
+     On C-points, vectors are full, and on F-points only the shell structure is
+     saved. It is up to the used to define InitShell, CloneShell and FreeShell.
+    I think only full vectors are communicated between processors, so no
+    modification of the *Buffer functions are required. Apparently work with my code...
+
+commit cfcb20f35ad8deace1529fc281d37b5df3c71d8b
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Wed Jan 20 10:54:55 2016 -0800
+
+    First modifications to take into account the shell structure of braid
+    vectors. Does not modify anything in the algorithm yet.
+
+commit f373ef6a36f4d83c05285a0c95824d3520b4e4d5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 21 13:03:34 2015 -0800
+
+    Fixed a small bug in the last commit for drive-06 regarding parallel mesh info printing.
+
+commit f6bac2b586425d1382ae65859d0052396832f51c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 21 09:50:50 2015 -0800
+
+    One more change to drive-06 regarding running in parallel.  This removes
+    (in large cases 5-10MB) some unnecessary printing to standard out.
+
+commit 8909a1113e1019388635e4bc3d782b3cbde5a05a
+Merge: 5ca76bb 1e7fe2a
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Dec 18 17:20:34 2015 -0800
+
+    Merge branch 'master' into cycle
+
+commit 1e7fe2acacb4642d689bd79fbb6d7f7ea424ef8b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Dec 18 15:31:54 2015 -0800
+
+    Fixed some bugs in _braid.c and especially in _braid_GetUInit() regarding
+    the various storage options, where storage=-2 is compatability mode with
+    old braid, and -1 and 0 use more current information.  There is a long comment
+    at the top of FRestrict() that outline some of the reasoning behind the issues
+    addressed in this commit.
+    
+    To test the bug fixes a new option was added braid_SetSeqSoln() which allows
+    the user to initialize the problem with the solution from sequential time stepping.
+    This is there just for debugging, but can be quite useful.
+
+commit 1d62592b709c8221674dc9ffc477590602627ece
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 15 14:56:39 2015 -0800
+
+    Added one more tweak for reproducing Ben O's results (lets you start
+    spatially coarsening from the first coarse grid down, or from the
+    bottom coarse-grid up).  Right, now this is just controlled from commenting
+    in and out code...because I dont' think that we'll use this option much.
+
+commit eb30d162687a3d65f02ca9082d892cc9905bd42c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 14 16:31:38 2015 -0800
+
+    Ran into an issue with querying MFEM meshes for their element sizes.  Not sure what
+    the issue is at this point.  So, I'm commenting out this call to ComputeMeshSize()
+    in main() for the time being.
+
+commit 45f1854911666edaad95140ab8307a632a8c6ba1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 14 12:01:19 2015 -0800
+
+    Added a number of new features in drive-06 for the nonlinear parabolic
+    paper.  These integrate some changes from Ben over the summer, like
+    tracking the number of Newton iterations, varying the Newton tolerance
+    and capping the number of Newton and BoomerAMG iterations. These options
+    are all available from the command line.
+
+commit 85bf18acdb9f650c0682dbba1137e55ddce03d71
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Dec 11 13:41:41 2015 -0800
+
+    Corrects typos in documentation
+
+commit 5ca76bb98f2ab55c957835283397318a74c8332e
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Dec 11 13:37:46 2015 -0800
+
+    Adds a comment at the top of the file related to the waitfile.sh script
+
+commit 7ae045943cf001eb4e5efffa3f7bcf15159a6f23
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Dec 11 13:33:46 2015 -0800
+
+    Modifies the gnuplot script to update "automatically". The new script waitfile.sh should be put somewhere accessible in your PATH variable.
+
+commit 7bda415659099c0e42378a18f886b2b47ee86587
+Author: Matthieu B Lecouvez <lecouvez1@llnl.gov>
+Date:   Fri Dec 4 15:06:23 2015 -0800
+
+    Adds another script to plot the cycle as well as the number of points on the fine grid on the same plot with gnuplot.
+
+commit a88839555dddf4e467629efe635d5c742883055e
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Nov 20 14:59:27 2015 -0800
+
+    Added a simple gnuplot script for plotting cycles
+
+commit 621efe6a531d3d2bfd14122cbe9eab5d607e0bc0
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Nov 20 11:36:12 2015 -0800
+
+    Added number of time steps to status structures.
+    Added some error checking code and a test in FRefine() for invalid refinement factors.
+    Example ex-02 sometimes generates negative refinement factors, but I left it as is to
+    stress the error checking code.
+
+commit 8d0236ddc9dab593986a6796403ca9fa82ff321a
+Merge: 9d20b68 39a3806
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Thu Nov 19 17:58:50 2015 -0800
+
+    Merge remote-tracking branch 'origin/master' into cycle
+
+commit 9d20b68ddb07edc22f1bb0f56ff2771ece7c885e
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Thu Nov 19 17:19:31 2015 -0800
+
+    First implementation of reorganized cycling code in Drive().
+    Added file output with cycling data plus a simple matlab file for visualizing it.
+
+commit 39a3806e5a215555698d298caa3d4d0a03005a16
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Nov 16 14:48:40 2015 -0800
+
+    Switched "isnan()" to our own in-house "braid_isnan()" macro.  This is for
+    better portability.  Rob caught this.
+
+commit c49dbf0b7d09c176f0d1da152561e357377c7af1
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Oct 22 17:14:32 2015 -0700
+
+    Change default initial guess to random and fixed -wn option
+
+commit 706f123d897cb17024c54adfa108221feadd3888
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Oct 22 15:17:24 2015 -0700
+
+    Adding additional diagnostic info for debugging
+
+commit 74cdcc4e1a11e96b8b4adebb1a80e00c8307e547
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Oct 16 12:46:49 2015 -0700
+
+    Debugging the skip option for the hyperdrive code
+
+commit f85d6964b0e044a03d3a98ac1602e4556bc75f58
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Oct 14 15:22:54 2015 -0700
+
+    Updating the hyperdrive to work with the latest version of braid
+
+commit df7757977d396d280a690f8c246aade1f0efa01f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Oct 13 08:42:23 2015 -0700
+
+    Fixed a regression test error in diffusion2d.sh from the previous commit.
+
+commit ddc62fe356665c5d0f5eedf31247679147b35051
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Oct 12 17:09:35 2015 -0700
+
+    To support cfactor=1, I believe this one line change is required in _braid.c
+    I also added some regression tests to test cfactor=1 on the finest grid.
+
+commit f76c13c9a52d5c20c6b6064f5e34ea15324c06b5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 8 16:18:11 2015 -0700
+
+    Adding "SetSkip" routine to the Fortran interface.
+
+commit 088a1beadf40fd7523ecf07b33e5bdaece217df0
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 8 15:54:51 2015 -0700
+
+    Added a few fixes to the skip option to do no work on the down cycle
+    - Fixed a memory bug in _braid_CopyFineToCoarse()
+    - Added some code to FASResidual() so that fa[ii]==NULL is assumed
+      to be a 0 function
+    - Did a few other formatting changes
+
+commit 7e61b24e4d7855764a6d6516d7db7b8e20dc4df9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 8 11:52:14 2015 -0700
+
+    Adding new option to skip all work on the down cycle.  This is now the default
+    option in Braid.  It can be toggled, though, with the "braid_SetSkip" option.
+    
+    I also cleaned up how the core->rnorms array is accessed with three new accessor
+    functions
+      _braid_AppendResidual
+      _braid_GetRNorm
+      _braid_DeleteLasResidual
+    The number of residual norms available depends on the skip option and the
+    iteration number.  Sometimes there are resdiual norms available, sometimes not.
+    And the number available does not equal the number of iterations.  So, these
+    functions make all that easier.
+
+commit 5c3a9379d2fc4b625b42d2e5f1edb64dd4d90f58
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Oct 5 14:25:09 2015 -0700
+
+    Adding mention of xbraid-support email address in the documentation, under the
+    "Advice to Users" section.
+
+commit daf624d63f662417f66fca3c9ce8e49e79c0339f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Sep 21 16:50:17 2015 -0700
+
+    Updated the debug residual norm printing where the individual
+    residual norm for each C-point is printed out.  Previously, the
+    output was printed by every individual processor, leading to values
+    being duplicated to the braid output stream, and to the braid output
+    stream having way too many processors write to it.  Now, the global
+    rank 0 collects all the information, and prints the individual residual
+    norms in order.
+
+commit 5aaeb091f1b32c5f9176d2fa743d66be01718529
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Sep 21 13:41:38 2015 -0700
+
+    Fixed a bug with the storage of residual norms when FRefinement() is
+    used.  The residual norm history array was growing every time an
+    FRefinement was done, not every time an iteration was done.
+    
+    Also added SetMaxRefinements() and SetTPointsCutoff() functions.
+    These allow the user to better control FRefine().
+
+commit a74ffaeebefd66935c91a6d2a5ede555351d8c1f
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Thu Sep 17 17:46:07 2015 -0700
+
+    Fixed a memory problem with the rnorms array when MaxIter is changed by the user.
+
+commit 352711ca46702d6aac25b443ab7038f40718babb
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Sep 16 15:10:59 2015 -0700
+
+    Removed tabs from the makefile.inc file.
+
+commit 789e193f53401e94bc609e79f2f6d12f813051d8
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 31 14:36:18 2015 -0700
+
+        Updated the regression tests so that they will check the
+        compatibility mode storage==-2.  Other regression tests coming.
+    
+        Also removed unused variables in drive-06.cpp, drive-07.cpp
+        Also fixed print_level==0 in braid::Drive()
+
+commit 2ff3dfb75142c9af19255ee83435432539c78596
+Merge: 186c557 02ae680
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 31 10:52:45 2015 -0700
+
+    Merging residual branch into main branch.  Things appear to be working.
+    Next, I will make sure that the regression tests work so that
+    "compatibility" mode (storage = -2) works the same.  Regression tests
+    for storage = -1, storage = 0, and the user residual function will be
+    coming in the future.
+    
+    Merge remote-tracking branch 'origin/residual'
+    
+    Conflicts:
+            braid_F90_iface.c
+            drivers/braid_mfem.hpp
+            drivers/drive-02.c
+            drivers/drive-05.cpp
+
+commit 186c557ec6decb6bff7777ddce18e7edd3f56cab
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Aug 25 12:57:31 2015 -0700
+
+    changed the default order in hyperdrive-01
+
+commit 6404a87f7fd5283fb38a1812746779e6cf02ce75
+Merge: 3a05e64 6feab32
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Aug 25 12:52:58 2015 -0700
+
+    Merge branch 'master' of tux355:/usr/casc/hypre/braid/git/braid
+
+commit 3a05e645268dfb7781a26f95d2a112441466b11e
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Aug 25 12:52:41 2015 -0700
+
+    new argument to hyperdrive
+
+commit 6feab320b967df060384b38db3c866df6a546c00
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Wed Aug 19 16:07:52 2015 -0700
+
+    Updated the websites for MFEM and GLVis with new (GitHub) URLs.
+    
+    Updated MFEM and GLVis installation instructions (glvis no longer requires
+    serial mfem).
+
+commit 02ae680b4a335bf8d83c8fd87c00f447029812ed
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 17 15:13:32 2015 -0700
+
+    A few changes to allow the code to run with F-only-relaxation, a case
+    where (possibly) not all rfactor values are updated before the first call
+    to FRefine.  Also, the Residual function did not update rfactor after the
+    call to the user's step(), which was a bug.
+
+commit c56a43d42554525efaf1357c98b9b291d190fb8d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 14 15:28:09 2015 -0700
+
+    Fixed segfault, initial version of Arnoldi-based coarse-grid time
+    stepping finished for drive-05.  And...it actually converges for
+    some problems.
+
+commit 39adcadc26f729c482211d97bb8da20ac94da2ed
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Aug 14 14:57:04 2015 -0700
+
+    hyperdrive work
+
+commit 9489bec977ea4a7fe23f898bcfd6ce23932248db
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 14 14:52:05 2015 -0700
+
+    Beta version (that still segfaults) of the Arnoldi-based coarse-grid
+    time stepping scheme
+
+commit a5f4f6d3b397d3f30b42f29b60acf673706e3b69
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 13 16:34:38 2015 -0700
+
+    Unfinished implementation of Arnoldi-based coarse-grid time stepping for drive-05
+
+commit c11c1ad100aba5b6e77cdd4a3502720a09ec966f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 11 11:39:49 2015 -0700
+
+    Fixed a bug with the 2D diffusion drivers and how the "simulation manager" is
+    accessed.  Stephanie first discovered the problem...and ol' valgrind tracked it
+    down.
+
+commit e21614457c822a2777b859b7ebc60f47d7b16838
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 11 09:54:00 2015 -0700
+
+    Added compilers to makefile.inc for Vulcan
+
+commit 00cf4b7c6be61e412dba1466f256531092c9060b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 7 10:36:34 2015 -0700
+
+    Changed the default mesh file location to be the typical "../../mfem/mesh/"
+    location for drive-06.cpp
+
+commit b12b4e0067498a518f10c7cdef74d86c7ee90bb5
+Author: Ben O'Neill <oneill10@llnl.gov>
+Date:   Fri Aug 7 10:32:37 2015 -0700
+
+    Fixed bug in drive-06
+
+commit 7d09cf31c5584858b6ec5be8cdc7c25bb8bfb0f1
+Merge: e62fc6b 1db46cb
+Author: Ben <southworth2@llnl.gov>
+Date:   Wed Aug 5 11:33:41 2015 -0700
+
+    Merge branch 'residual' of /usr/casc/hypre/braid/git/braid into residual
+
+commit e62fc6b9bcc58620fa2b44270bde92cce4775e89
+Author: Ben <southworth2@llnl.gov>
+Date:   Wed Aug 5 11:33:19 2015 -0700
+
+    fixed typo
+
+commit 1db46cbf602219cdacd2eda58df3f70c8bbdfa28
+Author: Ben O'Neill <oneill10@llnl.gov>
+Date:   Tue Aug 4 15:24:51 2015 -0700
+
+    Added p-laplacian (drive-06) and linear diffusion (drive-07) drivers. Updated braid_mfem to newest version.
+
+commit 974c94bb6b34cd90ec51fd7fdedeb116eb9a98ac
+Author: Ben <southworth2@llnl.gov>
+Date:   Mon Aug 3 14:00:16 2015 -0700
+
+    .
+
+commit ed33eaf1f361221b71f2748b316a26bebc3f6398
+Author: Ben <southworth2@llnl.gov>
+Date:   Mon Aug 3 13:58:03 2015 -0700
+
+    Fixed typo in braid_status. Added NaN check for braid residuals to stop iterating. Final moving mesh braid driver, serial code, and MFEM_ex10 wrapper in Braid - Drive-10.cpp
+
+commit 3872fcf53d935cc51841c12d84bddf8625e3ead5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 28 12:27:46 2015 -0700
+
+    Did a few small changes regarding naming consistency, adding back the
+    GetSpatialAccuracy hook in braid.hpp, and added a handle for the nfmg=0
+    case.
+
+commit de82bd43a7239b1ec846aeb04afe76855a2dbecf
+Author: Ben <southworth2@llnl.gov>
+Date:   Tue Jul 28 10:34:44 2015 -0700
+
+    Tiny change to print out.
+
+commit 4c570b091278e5d6e980bcfaabf9e26fe181f924
+Author: Ben <southworth2@llnl.gov>
+Date:   Tue Jul 28 10:25:12 2015 -0700
+
+    Added option to do N fmg cycles, and then switch to V-cycles.
+
+commit 1ce1cff343908db3be203f318e6b79fdbf9b78ec
+Author: Ben <southworth2@llnl.gov>
+Date:   Mon Jul 27 11:04:09 2015 -0700
+
+    cleaned up braid_mfem_block
+
+commit 1ba1348e503a1f27a75b67494310feb84252653b
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Jul 24 17:06:41 2015 -0700
+
+    Changed the coarsest grid solver for BoomerAMG to just relaxation.
+
+commit cbb88d0cb30a8b6088d7d2e9938fe1f04bb3b0e4
+Author: Ben <southworth2@llnl.gov>
+Date:   Fri Jul 24 09:58:07 2015 -0700
+
+    Tzanio's updates.
+
+commit a13725b0919b2c1a671ff5fa1ba79faeafe164b1
+Author: Ben <southworth2@llnl.gov>
+Date:   Wed Jul 22 16:24:23 2015 -0700
+
+    attempted debugging memory leak
+
+commit a35849025d790620640298a1fdacc4f426aa836d
+Author: Ben <southworth2@llnl.gov>
+Date:   Tue Jul 21 15:09:15 2015 -0700
+
+    Braid_mfem files
+
+commit 3940a9f01c47ae8cd0f7219ff64a938cff546550
+Merge: 6232456 5736058
+Author: Ben <southworth2@llnl.gov>
+Date:   Tue Jul 21 15:03:40 2015 -0700
+
+    Merge branch 'residual' of /usr/casc/hypre/braid/git/braid into residual
+
+commit 6232456fc41f6e19fd11e07f99549c3351ef2c3e
+Author: Ben <southworth2@llnl.gov>
+Date:   Tue Jul 21 15:03:32 2015 -0700
+
+    Extra hypre functions used in drivers.
+
+commit 573605865912eea4d291316b76ca43e987b60a82
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 21 13:27:21 2015 -0700
+
+    Needed one more change to drive-02 and ex-02-lib.c to make the driver work in
+    explicit time stepping mode with the new storage options.
+
+commit 02149f54a68c35eeedc8a4426b32d386635790bb
+Merge: 8a2df2c fa5ff0a
+Author: Ben <southworth2@llnl.gov>
+Date:   Mon Jul 20 12:57:34 2015 -0700
+
+    Merge branch 'residual' of /usr/casc/hypre/braid/git/braid into residual
+
+commit 8a2df2c79b6f3c8e07845bf3fc7988635b9cdedc
+Author: Ben <southworth2@llnl.gov>
+Date:   Mon Jul 20 12:57:03 2015 -0700
+
+    Moving mesh codes
+
+commit fa5ff0a55c99d772e38b2bbe01a01280c3b6a2ee
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 20 10:23:36 2015 -0700
+
+    I believe the explicit time stepping now works in drive-02.  Will ask
+    Rob to verify.
+
+commit 38897acd824acf99f332e7a03307a78f6c33cbe7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jul 17 15:58:15 2015 -0700
+
+    Updated drive-02 so that it uses the storage and new residual options.
+    The explicit time stepping in drive-02 is broken, and I was unable to
+    debug today.
+
+commit 4cf9f11d9f612e92a5ef074a160cf92dd6c3c49d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 15 16:26:22 2015 -0700
+
+    Woops...the GetSpatialAccuracy function is now a member of the BraidUtil
+    class, not as a part of Core.  This will make it easily accessible in Step(),
+    which is where people will likely use it.
+
+commit 246d31b612b3a1ae08b21f5dc8b6abe9955e2871
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 15 15:49:09 2015 -0700
+
+    Added the new accuracy function (and associated StepStatus routines) to
+    braid.hpp and the F90 interface.
+
+commit 700871647c5131c9576832bdedc60f19986f5c84
+Author: Ben <southworth2@llnl.gov>
+Date:   Wed Jul 15 11:39:53 2015 -0700
+
+    Updated braid.hpp file.
+
+commit f2d96dc15db7225d2ff5117c87e80aefb51265b7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 15 09:30:58 2015 -0700
+
+    Continued work on the new version of the accuracy handle.  Here, I
+    more thoroughly integrated the storage of an rnorms array and a
+    current iteration count in the Core object into Braid.  So, this
+    meant that rnorm and iter parameters were no longer needed by
+      _braid_FRestrict
+      _braid_FInterp
+      _braid_FAccess
+      _braid_FRefine
+    
+    This also simplified some of the rnorm and old_rnorm storage in
+    the Drive() function.
+    
+    This also led to a change in the braid_GetRNorms() function, which
+    now allows the user to request arbitrary segments of the residual
+    history, after Drive() is called.
+
+commit 9594599c394afcc9916053ae056af6bd0121bbf5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 13 16:29:41 2015 -0700
+
+    Fixed the initialization of StepStatus->tight_fine_tolx
+    This was causing halting problems for XBraid
+
+commit 7605e6173a4f795e6f0746d4a8e147727443a38d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 13 15:55:53 2015 -0700
+
+    A few small logic changes
+    
+      default min_coarse is now 2 (previously was 3)
+    
+      a residual norm of 0.0 no longer is a condition for halting
+    
+      a negative tolerance is no longer a condition for halting,
+      such a tolerance now means the code will run to max_iter
+    
+      if the original grid size is below min_coarse, then a single
+      level solver is used
+
+commit 0a9b8290320087c2f58b2aa86f36593443c06c71
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 13 10:28:44 2015 -0700
+
+    Removed the old (now unused) accuracy handled.  It was hard-coded into
+    the Braid code and needed to be removed.  Also removed the experimental
+    step_type parameter from StepStatus structure.  This parameter, it turns
+    out, raised fixed point iteration issues and was not "safe".
+
+commit 1c967506eac295ac226a79c848073784c038cb11
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 13 10:10:24 2015 -0700
+
+    Moved accuracy handle functionality to the user-side through the
+    StepStatus structure.  This will allow for a user controlled approach
+    to various accuracy handle strategies.
+
+commit 1a56617565e17f0291ff5b90d461e5572ea60a52
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Jul 10 16:59:17 2015 -0700
+
+    Moved the coarse grid initialization to avoid stagnation problems
+
+commit 93d34eb3fbee3a83aa201c055535c6de3a719922
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Jul 10 07:40:19 2015 -0700
+
+    Updated comments and added more explanation in FRefine function
+
+commit 391c703125fb42929f88536bd53803faa92d9918
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jul 8 08:46:17 2015 -0700
+
+    Updated some comments (still more to do) and fixed a small issue in example 2
+
+commit b4d2476fc7bbd13251d9a26eb9ac40348a127813
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Jul 6 18:47:02 2015 -0700
+
+    Put step_type back into the status structure
+
+commit e1dfba08d9476f0e6d9babcc179803dab0d61c55
+Merge: 3bcb83e a6e8547
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Jul 6 18:08:49 2015 -0700
+
+    Merge branch 'residual' of /usr/casc/hypre/braid/git/braid into residual
+
+commit 3bcb83e85a0cea90f17b4f254ac5a60652a93eb9
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Jul 6 15:46:42 2015 -0700
+
+    First working version of FRefine() functionality.
+
+commit a6e854787d303552c40f4ad7c8c0eaefdbcf8ab1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jun 24 16:21:47 2015 -0700
+
+    Added a compatibility mode for the storage flag.  If storage is
+    -2, then run as if using the old, original Braid algorithm.  Never
+    give the user the stored values at C-points.  This will be an extra
+    for experts option. If storage is -1, then store, and give to the user,
+    the stored C-point values.  If storage is 0 or greater, then the functionality
+    is unchanged.
+
+commit 8a0cafea79bfe4b8716d09634f3417b0465dc05f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jun 18 17:04:38 2015 -0700
+
+    Updated the StepStatus structure to also indicate the step type,
+    interpolation, relaxation, residual or access
+
+commit ce14fc8b644a529177402b618e1c1303ce69e61d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jun 18 15:56:56 2015 -0700
+
+    The TestCoarsenRef() call in drive-04.cpp had incorrect parameters.  This is now fixed
+
+commit 4520cf3be96b7cf198de2dfcf8bef4fd03fba610
+Author: Ben <southworth2@llnl.gov>
+Date:   Thu Jun 18 09:28:23 2015 -0700
+
+    fixed a few mismatched variable names
+
+commit bb85e17727b82bc374c6018146c6e917f537118c
+Author: Ben <southworth2@llnl.gov>
+Date:   Thu Jun 18 09:18:54 2015 -0700
+
+    modified:   _braid.c
+    Added function _braid_GetFullResidual to compute global residual using user-provided residual routine.
+    
+    modified:   _braid.h
+    Added function pointer globresidual in core struct for user to provide a function pointer to compute global norm.
+    
+    modified:   braid.c
+    Set up drive() to call new residual routine each iteration and use as stopping criterion if a pointer to the residual function is provided in core struct. Created function for user to provide pointer, SetGlobalResidual.
+    
+    modified:   drivers/braid_mfem.hpp
+    modified:   drivers/drive-02.c
+    modified:   drivers/drive-05.cpp
+    Don't believe I modified anything in drivers/, not sure what Git says is different...
+    
+    modified:   examples/ex-02.c
+    Added flag -new_res for user to decide whether or not to compute global residual each iteration w/ user provided residual routine.
+
+commit 17370478ff7ad00391bcc6a6f3f451d5d5a2be88
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jun 3 14:25:59 2015 -0700
+
+    Improved the user help messages regarding PFMG iterations for
+    drive-02 and ex-02.  Also fixed an incorrect print message in drive-02.
+
+commit dd2fe6ee9498fa3185c07994d6d6cc3c62ac6ef1
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed May 20 16:39:54 2015 -0700
+
+    Initialized a couple of variables to reduce the possibility of bugs like the
+    previous one occurring in the future.
+
+commit 230f1295e26985a2153d0dbcbecf315e8e241cf2
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed May 20 16:28:45 2015 -0700
+
+    Fixed a bug that appeared in some parallel runs.
+
+commit e1c5035dd216e0c9d800df6a1301fdb3adb443c7
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue May 19 11:03:44 2015 -0700
+
+    Added ability to store all u-vectors on some specified level and higher.
+
+commit 668c9461888c5ef563c95590409e9b61d14a6113
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue May 19 10:09:06 2015 -0700
+
+    Fixed the u-vector initial guess for implicit problems when only storing C-points.
+    Now the code doesn't stagnate.
+
+commit 36bd168bd153157fe6d6c32f0227997090232929
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue May 19 09:47:42 2015 -0700
+
+    Added the ability to store all u values.
+
+commit 0fb320b80b6cdc57e1ebe0bacfd734547dbad1fb
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue May 12 16:46:12 2015 -0700
+
+    Added my_Residual functions to examples 1 and 2.
+
+commit f117bbaf496336e2c88b712bf04c1c91c33db91d
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue May 12 08:14:04 2015 -0700
+
+    First working version of new residual stuff, example codes only.
+    Have not yet tried turning on a user-provided residual routine.
+
+commit debefefb848497fffa6c7c1c094f08eadbd09807
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Thu May 7 20:00:48 2015 -0700
+
+    Added options to drive-05 to:
+     - allow lumping of the mass matrix
+     - control the visualization: visualize every m-th time-step and every n-th
+       Braid step
+     - optionally take screenshots of the GLVis window
+
+commit b7d6cfdde8d27053c48cbaa179bed3a948f87381
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue May 5 14:06:55 2015 -0700
+
+    Added missing function to Fortran interface, allows user to get Braid level in Phi
+
+commit 9ff99dfc65c09ae0dd175de272e7ffe8ec405c89
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri May 1 12:50:20 2015 -0700
+
+    Added a SpaceTimeMeshInfo object that tracks the space-time mesh widths
+    at runtime.  These are then printed out after a run.  It's useful for diagnostics
+    and seeing what CFL numbers you are running at.
+
+commit c10ba67bdf9822d5d7e44bf6c42290299cff30b9
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Wed Apr 29 20:00:32 2015 -0700
+
+    Separate objects common to mfem drivers in drivers/braid_mfem.hpp.
+    
+    Use braid_mfem.hpp in drive-04.
+    
+    Added new drive-05.cpp, based on example 9 from mfem. This is an advection-
+    diffusion example using discontinous Galerkin discretization and explicit
+    time-stepping.
+
+commit d07d5a96b568838ee6a6cb72ed4133a9e43ff2ca
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 15 14:33:42 2015 -0700
+
+    Changing SetDefaultPrintFile to better account for the length of the
+    character array of the default output file name.
+
+commit 33dd1af002a772892be81a9b19da8f89f8ea1ad5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Apr 13 14:17:37 2015 -0700
+
+    Added new function braid_SetDefaultPrintFile, primarily for fortran codes.
+    It is difficult to pass strings (i.e., filenames) from fortran to C in a machine
+    independent way.  So, this function just sets the braid runtime output to all go
+    to a file name braid_runtime.out.
+
+commit 5a8383de5358b4d234ba5b3e89d15eace7deb475
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Apr 10 10:55:34 2015 -0700
+
+    Fixed error in ex-01f.f90 so that the coarsening factor and number of
+    relaxations are set correctly -- the command line params were not
+    being processed correctly.
+
+commit 8b4952753b5d610fe27b92673300aa3b169fcaf9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 8 14:53:34 2015 -0700
+
+    Added check regarding nprocs > npoints.  Currently, braid does not
+    handle having more processors on the fine grid than there are points
+    in time.  Eventually, we will change this, especially as we allow for
+    adaptivity in time.  But for now, this change avoids a sigFPE error.
+
+commit 72b3fe5b42a3e51af7a7c64c831e0f22c414666e
+Merge: ccfe3d3 a5cbc75
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Sat Apr 4 01:00:04 2015 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/braid/git/braid
+
+commit a5cbc75516c5d346f4c5784a2c0279bb122830cd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Apr 3 17:11:31 2015 -0700
+
+    Fixed bug in fortran interface to braid_commsplit
+
+commit ccfe3d3f347a7b003640f17293191abe2f7d38d8
+Merge: af26c1c 59a6159
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Apr 2 01:00:05 2015 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/braid/git/braid
+
+commit 59a615954480cc64041569bb65b4ce0742085341
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 1 14:06:40 2015 -0700
+
+    Added "implicit none" statements to my fortran program units in ex-01f.f90.
+    Just learned that this is good practice.
+
+commit af26c1c2da6cfb01c567dd8bbdb6c67e8a2f11a5
+Merge: edb5146 3dfd21b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 1 09:30:43 2015 -0700
+
+    Merging the recent fortran interface commit with a local commit to the hyperdrive
+    example.  These are non-overlapping commits, so it should be OK.
+    Merge branch 'master' of /usr/casc/hypre/braid/git/braid
+
+commit 3dfd21b0a522be317fbddfd7b2bf001c029c9bec
+Merge: 1e5dea3 f00d2dc
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 1 09:00:30 2015 -0700
+
+    Merging in changes to the local copy containing the first draft
+    of the Fortran inteface
+    Merge branch 'master' of tux343:/usr/casc/hypre/braid/git/braid
+
+commit 1e5dea3a50891c5dd56fd2bc0ec796b37e8485d6
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Apr 1 08:58:26 2015 -0700
+
+    First version of the Fortran interface.  Currently, it is turned on
+    manually in braid.h with 3 pound-defines at the top of that file.
+    One pound-define turns on the interface, another pound-define chooses
+    your name-mangling option and the third pound define turns on spatial
+    coarsening in Fortran.
+    
+    There is also an examples/ex-01f.f90 which is a fortran90 analogue of
+    ex-01.c.  They do the same thing.
+
+commit edb51466fea02254e2956a6243001f3ec26dac81
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Mar 26 15:26:26 2015 -0700
+
+    Fixed two warnings with hyperdrive
+
+commit f00d2dc681dc8b10a5ddf69ee25398d0819100f1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Mar 26 15:24:15 2015 -0700
+
+    Had to merge some interface changes into Anders code to get it to compile.
+    All changes in the hyperdrive directory
+
+commit 976f1e289387b502c44e2dcbc653b5ad5fe96e31
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Sun Mar 22 20:29:31 2015 -0700
+
+    Added some advice to users in the manual about the youth of our field
+    and to temper expectations.
+
+commit 6cb47c67fd044bac44c2308cdd1794db9273dc85
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Mar 17 22:06:31 2015 -0600
+
+    Changed version number in manuals...forgot to do this for the latest release
+    one week ago.
+
+commit 4172d00c963be2c062b68cbc7d4fab5a3b025494
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Mar 16 15:18:30 2015 -0600
+
+    Fixed small bug in ex-02 about printing the "-help" message
+
+commit 7a86c6c1b115d90c9ddc2c60a282a00da140182e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Mar 11 13:46:57 2015 -0700
+
+    Removing two errant driver files from examples directory.
+
+commit 57208eb4d25599449a671b102a480bd368cdabfd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Mar 10 11:31:53 2015 -0700
+
+    Final documentation updates for the release aimed at CSE 2015.
+
+commit 3560d8f2c0eeec534f975445c937fee97792333c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Mar 9 21:47:09 2015 -0700
+
+    Updated documentation to discuss the new simplified 2D heat equation
+    example, examples/ex-02.
+
+commit b72c924fad5d2beeda5ceec757fef4ad4af43785
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Mar 9 16:53:05 2015 -0700
+
+    Many changes, but all related to the examples and drivers
+    
+    - The drivers directory was split into "examples" and "drivers"
+    
+    - examples holds simple user-friendly examples.  Currently that's
+    ex-01 and ex-02, a scalar ODE and heat equation example, respectively.
+    
+    - ex-02 is a simplified example that only does backward Euler and corresponds
+    to ex-02-serial which is a mock-up of a simple user application that we
+    parallelize in time with ex-02.
+    
+    - drivers holds more sophisticated drivers that we use for research
+      This is where all the old drivers (drive-02, drive-03, drive-04,
+      drive-05 and hyperdrive) ended up.
+    
+    - The old drive-02 was eliminated, and replaced by the old drive-05.
+    These drivers duplicated functionality.
+    
+    - Associated regression tests were added for the new examples
+
+commit 8e97147aed08fabc4edd5055cc27335f8aa49997
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 27 08:37:55 2015 -0800
+
+    Fixed a broken regression test related to yesterdays commit
+    regarding nonzero forcing functions.
+
+commit 2310fca40d1f8028cd2b0e8bc5f83bd9bf78a46e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Feb 26 11:27:31 2015 -0800
+
+    Added a nonzero forcing term (from Stephanie) to drive-02 and 05.  Added
+    a unit test to check it as well.
+
+commit 1226669990f0d788e787cabc6522aba01b2cc51b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Feb 23 13:49:48 2015 -0800
+
+    BufPack in drive-03 was returning an incorrect size for the buffer
+    just packed.  This is now fixed.
+
+commit 929d3f3cfc11bb7412033b693cc8951d25b7e8db
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 20 08:54:11 2015 -0800
+
+    Changing (slightly) how dt is computed in drive-02 and drive-05 so that they
+    are consistent and that they both account for the possibility that dx may not
+    equal dy.
+
+commit 4063e11e39e13776443f411ad8fe4a3e843fa4fb
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Wed Feb 4 16:11:06 2015 -0800
+
+    A few small changes in drive-04.cpp to make it compatible with the current
+    version of mfem.
+
+commit 6ce274a846f6603e6d3cd618572a7ff7bf2c0654
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jan 23 09:58:11 2015 -0800
+
+    A few minor changes,
+      PhiStatus structure now supports a GetLevel function
+      There is a GetNLevels function to return the number of Braid Levels
+        after a solve is done
+      These functions (along with a GetRNorm and GetNumIter) were moved
+        to braid.hpp
+
+commit cf661196cb7d22317982311d1cf7bbe3fb6085d1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jan 13 16:05:30 2015 -0800
+
+    Fixed small bug in drive-05 related to floating point arithmetic and computing
+    the same number of spatial coarsenings across processors.  This fix is not general
+    but should work for this special case of uniform grids in drive-05.
+
+commit 32800907c1b79a1dde2e4db1e21aa5be5d7fb5f7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jan 9 20:43:52 2015 -0800
+
+    Removing a bunch of erroneously committed temporary files from the previous commit
+
+commit 0777d275c730aecca5b39a5c5534a46d4178ed16
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jan 9 20:26:45 2015 -0800
+
+    Updated drive-05 to handle spatial parallelism.  Before, drive-05 handled
+    spatial coarsening, but did not allow for parallelism in space.  This is
+    now fixed.  The interface to drive-05 has also been modified to allow for
+    level specific CFL targets which guide the spatial coarsening rate.  Also,
+    associated regression tests were added to test the new functionality of drive-05.
+
+commit 0f2bcbd39d2c1517c73db80be12c1cbdf6edfbbf
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jan 7 15:17:51 2015 -0800
+
+    Added the current braid level to the CoarsenRef status structure.
+    Also, added a line in makefile.inc for Cab.
+
+commit 7613d7189e8cc36f1bfc415f11748c30cd8adf1e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 20 11:12:56 2014 -0800
+
+    Changed the drive-05 interface to more easily allow playing around with
+    varying coarse grid CFL numbers.  Also added a couple comments to _braid.c
+    that better explain the grid structure's data elements.
+
+commit bef2ad1bb2ff7f9fdcd07a102d4ee3ac04b23aba
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Nov 17 14:58:18 2014 -0800
+
+    Added the logo to the front of the manuals
+
+commit b604ed55cd6f5fb5d9b16cdaba53e458b71ed505
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Oct 24 14:50:38 2014 -0700
+
+    Updated the documentation to reflect improved wording for introducing MGRIT from the Strand2D XBraid paper
+
+commit 6fcad7d79f9b6ba95a29dcf31c6dd134cf40f8e1
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 23 15:00:03 2014 -0700
+
+    Added how to cite instructions for XBraid to the manuals
+
+commit 402376449cc24380aa5cdc29bbf236545c0e4b19
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Oct 21 13:01:00 2014 -0700
+
+    Changed file headers to use xbraid-support@llnl.gov, rather
+    than our personal email addresses
+
+commit 4c1bc955081a90782cde94ccbf73e157e444b122
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Oct 20 13:47:39 2014 -0700
+
+    fixed an error in how the timestamp was printed to the VERSION file
+
+commit e6cc8448d246ad6c102bc1f849897b23e1b3d874
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Oct 14 16:55:30 2014 -0700
+
+    updated the title image a bit to match the title image on the website
+
+commit 5f75118e4ee2e172a79c8758b105e0aa925a10d7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Oct 9 16:28:07 2014 -0700
+
+    Changed the name of SetMaxCoarse to SetMinCoarse.  This more accurately reflects what the function is doing
+
+commit 0239967cb85c86c457f518be4fc875218395370c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Oct 8 16:43:40 2014 -0700
+
+    Updated the PrintStats routine to also print the number of time points at a level, and updated the per iteration printing to track the wall time (this would have been useful for the Strand runs)
+
+commit 86f284b987b57765f2f377c64057159b3024da53
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Oct 7 17:34:09 2014 -0700
+
+    Changed Docs to use XBraid and not \chi Braid.
+
+commit f93fe35148bdf955104c2427ce156bcc3bc8190e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Oct 1 15:00:18 2014 -0700
+
+    changed the tarball release filename structure to contain the first 8 Git hash characters.  Tarball releases are still located in /usr/casc/hypre/braid/share/braid_tarballs.  Only the 10 most recent tar balls with unique hash values are kept around.
+
+commit 8a810b497347f6ea50d9b6442607c0d1fe9e7c97
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Fri Sep 19 15:13:57 2014 -0700
+
+    Update drive-04.cpp after moving the implicit time integrators and the
+    time-dependent coefficients to MFEM.
+    
+    Clean-up some of the code from Ben.
+
+commit e086fd20e3824162d6c8bb963cea8b5f1e11f8ce
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Wed Sep 17 16:31:46 2014 -0700
+
+    Updated the C++ interface in braid.hpp to use braid_Int and braid_Real
+    everywhere.
+
+commit ad72afeaadcd793b3d7af70751aeabf1cb893340
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Sep 17 15:35:52 2014 -0700
+
+    Added a new member "wrapper_test" to the AccessStatus structure.
+    This boolean flag indicates whether Access is being called from a
+    wrapper test or from an actual Braid run.  This is useful in Strand
+    where the wrapper tests do sanity screen printing during the wrapper tests,
+    but something more sophisticated during actual runs.
+
+commit b4359fe8658c9188a92d43981672500f2ec7a7b4
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Wed Sep 17 12:48:11 2014 -0700
+
+    Fixed a compiler warning, improved code styling in drive-04.
+
+commit d17d22e88d5ea9636b4df190c1a4293662c22b29
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Wed Sep 17 12:46:21 2014 -0700
+
+    Reordered declarations so the BraidApp class is in the beginning of
+    braid.hpp. Made a few other small formatting changes in that file.
+
+commit 42b1724292d4c9700ece8e132df5561af5b8b7c4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Sep 17 12:05:55 2014 -0700
+
+    Updated the C++ wrapper
+    
+    - Changed the test routine wrappers to automatically use the _BraidApp**()
+    functions. This makes the test routine interfaces in C++ cleaner
+    
+    - Changed the braid_Core wrapper to use braid_Int and braid_Real, not int
+    and double
+    
+    - Changed the way the status structures are wrapped.  Now, the _BraidApp**()
+    routines do the conversion from the C structure "braid_**Status" to
+    the C++ object "Braid**Status".  This way the user routines don't have to do
+    this conversion.
+    
+    - Moved the Coarsen and Refine routines into the App structure.  They work
+    the same way as all the other function Phi, Clone, and so on.  Except, these
+    functions are only virtual, meanining that their definition is optional.  The
+    default implementation just calls clone.
+    
+    - Drive-04 has been changed to accommodate this update
+
+commit 7401f848dfcdd64447fd530e59c257fd37067c1e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Sep 16 15:37:56 2014 -0700
+
+    Fixed a permissions issue for the tarball archive creation
+
+commit 3f76c88c396851f44ddd9b0a34c3ed3a3bb51d87
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Sep 16 14:51:03 2014 -0700
+
+    Added a nightly regression test that creates a nice share-able
+    tar.gz in /usr/casc/hypre/braid/share/braid_tarballs
+    This tarball has unnecessary files removed, fresh manuals, and a
+    VERSION file identifying the hashtag and date
+
+commit e911dc0164d5c6d78cbff11a187d5ad52b78a296
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Sep 16 14:17:04 2014 -0700
+
+    Simplified C++ interface.
+
+commit 69ebec28f54fdcb65993485ae667d3c1d5dfe2a5
+Merge: 7b1b544 daa4162
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Sep 16 12:32:19 2014 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/braid/git/braid
+
+commit 7b1b5444cf00bccde80ac8453f3190f9bf31b854
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Sep 16 12:24:46 2014 -0700
+
+    Moved the C++ wrapper classes for Braid from examples/drive-04.cpp to braid.hpp.
+    
+    This required some interface changes:
+    
+    - BraidApp, in braid.hpp, is now an abstract base class with purely virtual
+      functions for Phi(), Clone(), etc.
+    
+    - The corresponding "C" functions that are passed to Braid are defined outside
+      of the class, with names like _BraidAppPhi(), and assume that their _app
+      argument is of type BraidApp*. These are the functions references in the
+      BraidCore class.
+    
+    - MFEMBraidApp inherits BraidApp in drive-04.cpp and implements its virtual
+      functions.
+    
+    - The classes BraidAccessStatus, BraidPhiStatus, BraidCoarsenRefStatus and
+      BraidUtil remain the same.
+
+commit a92c02636653edbfba931ef4831fc7848b8063fc
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Sep 16 12:22:02 2014 -0700
+
+    Removed the examples/drive-04 binary from the repository.
+
+commit 0ab9bb9fce63ebb167ca8c0dbf12ce50483f1091
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Sep 16 12:20:32 2014 -0700
+
+    Moved vis.c to the examples/ directory (it is currently used only in drive-05).
+
+commit daa416233dd822df4f5f608864cda971c4f30cb0
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Sep 16 11:18:06 2014 -0700
+
+    Added the release number to the manuals.  The package is now ready
+    to give to people :)
+
+commit 686a50871926efba4642181ad53c1cf47d559c5e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Sep 15 21:50:11 2014 -0700
+
+    Updated Copyright and License statements to relfect the new LGPL License
+
+commit 90a017b4a57ff3727c4e51a779bf93509f3f1272
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Sep 15 17:36:48 2014 -0700
+
+    Braid is now LGPL 2.1.  Added LICENSE and COPYRIGHT files, also updated
+    all the file headers per the new lab guidelines. The license has been
+    approved by the lab.
+
+commit e74e7e6b5b9148affa4e0f8b45a25d08b23a29df
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 26 13:30:20 2014 -0700
+
+    added function, SetPrintFile, to the C++ BraidCore wrapper in drive-04.  I forgot to do this, apparently.
+
+commit 0648931c9eca244a034064fae5dd7cb49f48b44d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 26 12:20:43 2014 -0700
+
+    added regression tests to guarantee that different processor configurations in time, under certain circumstances, yield the exact some residual.  This is tested for all three TemporalNorm options.
+
+commit b8913aaf747042b3c6b887185c90d527be02b6ad
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 26 11:27:49 2014 -0700
+
+    added regression test to confirm a basic diffusion scaling study
+
+commit 746c03833c1ba52a57650b7603f23cc84ebd9cb9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 26 11:11:11 2014 -0700
+
+    changed BufPack to return size of actual bytes packed to allow for more smaller messages when the spatial grid size changes
+
+commit 83a3dc6c6f8538ae9f6a090ff425880b917195ed
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 25 17:28:59 2014 -0700
+
+    added 1-norm and inf-norm halting options
+
+commit 84f00297e0c288efce3ca79ba9d0cdc021f1cd40
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 25 10:45:10 2014 -0700
+
+    Renamed ResidDot to SpatialNorm
+
+commit 59cd098bfafd402ebebde1828ea92529a5f14aec
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 25 08:55:15 2014 -0700
+
+    Updated braid_status documentation
+
+commit 27654831a0c5817a8e2e8b94cf5f64367ac0aa2c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 17:28:51 2014 -0700
+
+    Implemented some StatusGet() functions that get more than one variable at a time
+
+commit 742496dbfe6771a4ae90685ab93a8cd41a340a71
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 16:44:03 2014 -0700
+
+    merged new access interface to Anders hyperdrive
+
+commit 88247fd8b7e8f901f3d8fa06533570029b1b13dc
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 16:39:31 2014 -0700
+
+    Renamed CFRelax to FCRelax
+
+commit 0545b364a7e75b6b36d7d05ae7d269753a4f1f8b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 16:36:41 2014 -0700
+
+    fixed the Access interface to rely only on a status structure, there was a mix of variables and the status structure being passed to Access, this will lead to a consisten interface between the user-written functions
+
+commit 56510fece707fab385e795899ae8c261c5acb99d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 15:25:17 2014 -0700
+
+    the user and developer manuals are now copied to usr/casc/hypre/braid/share/braid_manuals nightly during the regression tests
+
+commit 4a8266bb95f1bb0b8f85dc03b4b4772c9837f864
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 10:37:28 2014 -0700
+
+    made usage of XBraid and braid in comments in documentation more uniform
+
+commit a6e3c6a779d2befe6db3f9ba868ca18eac912ef0
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Aug 22 10:21:51 2014 -0700
+
+    Cleaned up some of the documentation relating to all of yesterday's changes
+
+commit 21acba65fbcf4ea7e5dafb93e4f523dd1fa0f10e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 21 21:11:34 2014 -0700
+
+    Added CoarsenRefStatus wrapper to drive-04
+
+commit a73d6f0aaf0bb34261878a3173fab854a27a09e4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 21 17:24:28 2014 -0700
+
+    Changed the Coarsen, Refine and Phi interfaces to be flexible and take a status structure as their argument.  The user will now get information like tstart, tstop and so on from GetTstart(status, &tstart) type calls.  I've changed the interface too many times in the past...and this will make future changes much easier.
+
+commit cc545c8b05a0bebb9f8f9945b568aaadc775d491
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 21 13:18:37 2014 -0700
+
+    Renamed Status to AccessStatus, and moved AccessStatus to the Core Structure to avoid re-allocating it.  Next, will come PhiStatus and CoarsenRefineStatus, which will mirror AccessStatus
+
+commit 1b166d03d239ede2dc7f16a1e630d9de35349a26
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Aug 21 10:08:19 2014 -0700
+
+    Moved braid_Status structures/routines to separate file.  Next will come braid_PhiStatus, braid_CoarsenRefineStatus, braid_AccessStatus structures and their associated get/set routines.  This will be a lot of lines...and putting them all in a separate file makes sense.
+
+commit a416a2864451ca49f16acaedf12132bfd7684711
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Aug 20 17:25:47 2014 -0700
+
+    Changed the dot function to residdot per a group discussion long ago.  This function is only used for residual dot products and this new name makes that apparent.  The user may want a non-Eucliden a inner-product, and this function lets the user have a function devoted solely to computing the residual norm
+
+commit 228c7b843f4c5221fe6f3ae8f7634cfa99871ca4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Aug 20 14:59:43 2014 -0700
+
+    Finally changed Write to Access, per a group discussion long ago.
+
+commit 576783578ccdf8bc931c7e9355b06a817f4cced9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Aug 20 12:04:52 2014 -0700
+
+    Removing PDFs of manuals from Git repository.  They take up too much space and change very frequently.  They would be nice to have have, but every change to the PDFs results in a 20MB larger repository
+
+commit d02b4a632582293de8f4f151e23e4ffdee4f85fd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Aug 20 12:03:51 2014 -0700
+
+    changed documentation so that XBraid is used in all plain text documentation, but the documentation Makefile will change that to $\chi for the purposes of latex
+
+commit 9208ad1031a1d5caf7111fb5c85137cecaf88081
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Aug 20 12:01:50 2014 -0700
+
+    changed autotest.sh to have new Braid ascii art and changed some of the documentation PDFs to eliminate hidden text that Apple preview did not get rid of
+
+commit a7ae28b9936ecd37ae5f35a38897d5fc96d064a4
+Merge: 3d3f389 36711e3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 19 21:36:16 2014 -0700
+
+    Merging changes to autotest so that autotest reads Braid and not XBraid
+    Merge branch 'master' of tux343:/usr/casc/hypre/braid/git/braid
+
+commit 3d3f3891ed01dadc37b37a056724ba4cd0f23f7b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Aug 19 21:35:52 2014 -0700
+
+    Changed autotest to read Braid and not XBraid.  Removed old warp.pdf
+
+commit 36711e3ec080797f19b1327db7f4fd3cd906eea5
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 18 15:54:10 2014 -0700
+
+    Updated autotest framework to use the new braid directory
+
+commit 2d368af41d91cf78a85467621f813661fbcb666f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 18 15:38:07 2014 -0700
+
+    Fixed a few documentation errors related to the new name
+
+commit c32b5166658584b8c21d8a1e8a3efb6f4a0b086b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 18 15:04:34 2014 -0700
+
+    Changed the name from Warp to Braid.  This involved changing basically every file.
+
+commit 85d2bf3073570a0039c340300d68ed3ddeb960ce
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 18 10:50:45 2014 -0700
+
+    renamed warp files to braid
+
+commit 1f1b742a462b664a207a95249e9f70e65c5557dc
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Aug 18 10:49:43 2014 -0700
+
+    Adding Bens Changes
+
+commit ef338c6babb4121ff534b831c91f5b1e852dcb3c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 29 17:28:03 2014 -0700
+
+    Tweaked the documentation per Lucas comments
+
+commit b29e818170efc42738eaca418c05fc14a72c2bb3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 29 12:22:40 2014 -0700
+
+    Needed to change one comment in warp.h for the docs regression test to pass
+
+commit aaea4f8d2b8e281ba7812433bde8af88bed25a66
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 29 12:16:28 2014 -0700
+
+    fixed an error in warp.h (I accidently uncapitalized various things like warp_App to warp_app).  This should now be fixed
+
+commit 46b5e9ae6967cd4e328707b2ea4e1705e543fae9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 29 11:53:05 2014 -0700
+
+    Added license statements to all files, and finished first edition of the user and developer manuals.  The manuals are still pretty basic, but they make the package more stand-alone
+
+commit 15d0e3d129542462c13c47d4325d33eacd60edd7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Jul 28 15:53:58 2014 -0700
+
+    Finished user manual, first edition.  Its just a first pass at a manual, but it does make the package more stand-alone
+
+commit 38ffcfec9d8270a4bd701223ad460651102700cb
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jul 25 17:22:00 2014 -0700
+
+    finished first real draft of user manual--woopee
+
+commit 115c673c16cf9a62b37c7fc971ae432b61fca6ab
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jul 25 15:34:58 2014 -0700
+
+    updating documentation for initial alpha release
+
+commit 9856a0eb36b3b1a12e445e0c8520fb03a243f26b
+Merge: b44bfc5 e971f89
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 24 16:38:02 2014 -0700
+
+    Merging documentation updates
+    Merge branch 'master' of tux343:/usr/casc/hypre/warp/git/warp
+
+commit b44bfc5655ace5e740dafe4296919de309c27963
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 24 16:37:59 2014 -0700
+
+    renaming Readme file for Doxygen
+
+commit e971f89a3e61ce4247c0fdc177ee076244433cc4
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 24 16:31:33 2014 -0700
+
+    two small changes required to the regression tests because Fedora changed the output from mpi (I think really the action of openmpi to ssh into the tuxbox to launch multiple mpi processes has changed and now a new message is printed)
+
+commit 8bcf9a46f47b7b8f3aced1e82bd6532ba0e65790
+Merge: 5ef723a 86f679d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 24 15:37:13 2014 -0700
+
+    Merging some documentation updates.
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 5ef723a24164bad12c7230f3fe5a2474541a0fb3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 24 15:28:55 2014 -0700
+
+    updating the documentation -- partially finished
+
+commit 86f679dbb718c6c72be4aaa22bd54c01f58d370c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 10 17:09:19 2014 -0700
+
+    Added vishost and visport command line options to drive04.  This is
+    for runnin glvis on LC machines (primarily).
+
+commit d58da1686e477786a70dde71fa8c9fa684119a4c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 10 13:42:38 2014 -0700
+
+    Added a max_coarse option that allows the user to set a maximum
+    coarse grid size (in number of C points).  It's a minor feature,
+    but I found myself wanting it.
+
+commit a7cc02ad0c6136f1ed806e8dde7b65191a6db4f8
+Merge: 4691fba 6a60727
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jul 10 11:41:49 2014 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 4691fba57b7e8b70f6c0292668a189c6f13f4ef2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Jul 8 17:07:19 2014 -0700
+
+    Adding some for debug level printing to allow for tracking the residual
+    value over each interval.  This will allow for checking whether the
+    exact solution is indeed being propagated by Phi.
+
+commit 6a6072716f7e667376b7854795d7e318f0dc8f0b
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Jun 10 16:37:41 2014 -0700
+
+    Experimenting with Fourier interpolation/restriction and residual filtering
+
+commit 4723ef23e55be3378afb7418e60e6b12d4f5cf6b
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Mon Jun 9 14:15:58 2014 -0700
+
+    octave script for evaluating spectral radious(D1+D2)
+
+commit d5c9a46ee60c61ddae27dba5c2da19decfca2079
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu May 22 16:42:57 2014 -0700
+
+    Impletmented and analyzed artificial dissipation
+
+commit e483c0170d6a08681e86dba1fc63b6e7c60ed272
+Merge: ecce696 a6d2530
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri May 16 14:52:15 2014 -0700
+
+    Merge branch 'master' of tux355:/usr/casc/hypre/warp/git/warp
+
+commit ecce69657c32cf94ce960c1c7dc52c7beb05d259
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri May 16 14:51:52 2014 -0700
+
+    Random initial guess for t>0
+
+commit a6d2530b425a6b00647272f8d0aa3db6a02aa8e2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue May 13 16:01:46 2014 -0700
+
+    added query functions to find num iters and rnorm after warp Drive is finished
+
+commit ecb173bc1de9696ec186d14337483c4dcea1a5f6
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri May 9 10:54:50 2014 -0700
+
+    changed regression tests to accommodate the enhanced F-cycles
+
+commit 27334bf52242e7d6de6b1b3318f1c486a069fd5b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri May 9 10:27:16 2014 -0700
+
+    Added ability for Warp to do enhanced F-cycles (i.e. mutliple V-cycles at each level in an FMG cycle)
+
+commit 68e6090aa38610ab3c5b02c5d693651c851de924
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Apr 25 13:00:00 2014 -0700
+
+    Added a wrapper routine to set a relative stopping criteria to drive-04.
+
+commit 25e47fa1ba663e6fa8f676df3816889e74044506
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Apr 15 10:13:49 2014 -0700
+
+    the residual norms each iteration now get printed to the same output file (or stream) that all the other output gets printed to.  this must have been an oversight from an earlier commit
+
+commit 17fa53f2be1f64c5eea8fead1e58bf0c2be36ab7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Mar 27 16:20:00 2014 -0700
+
+    applied a patch from Veselin to drive-02 that handles cases where dt/dx**2 is at the CFL limit and numerical error  can yield some processors using explicit and others implicit.  At the least, warning messages are now printed.   Also, warp drive now prints a convergence factor each iteration
+
+commit 52bdf07909511d79c9231bd8b4586d63367c019f
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Mar 19 11:43:12 2014 -0700
+
+    Minor change
+
+commit ec33ca7c1386890e78ab9e10ac1e86293df50f3b
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Mar 18 15:27:03 2014 -0700
+
+    Implemented artificial damping on coarse grids and in restriction operator
+
+commit a548b15ec0754a9d75655cec85f0cbdbc90252b0
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Thu Mar 13 12:38:08 2014 -0700
+
+    Changed SetPrintFile() to only open the output file from process zero.  For any
+    process other than zero, _warp_printf() prints to stdout instead.
+    other process.  written to stdout.  # Please enter the commit message for your
+    changes. Lines starting # with '#' will be ignored, and an empty message aborts
+    the commit.  # On branch master # Changes to be committed: # (use "git reset
+    HEAD <file>..." to unstage) # # modified: warp.c #
+
+commit c08200b648b62630307e0fb90c50410caf253e12
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Mar 12 10:03:42 2014 -0700
+
+    Continuing to have issues with valgrind regression tests due to my Fedora upgrade last week.  This commit will remove the troublesome regression test for now.
+
+commit fde1d568eab4ba2245d67a6a03484e844cb66f98
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Mar 6 08:52:12 2014 -0800
+
+    Had to modify the saved output for the diffusion2D regression test to reflect the updated warp_test output.  Should have remembered to do this in my previous commit :)
+
+commit 3cb14c6340888fcfbb177a09e032dc1c8aa2c8dd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Mar 5 15:40:00 2014 -0800
+
+    cleaned up the interface to the warp_ParFprintfFlush() function, which cleans up warp_test.c considerably
+
+commit 642d5812217f3fb4c11be3cb3959501d379ae9fb
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Mar 5 13:34:21 2014 -0800
+
+    Jacobs Fedora version was upgraded, causing a few minor changes to the regression testing output
+
+commit 370111e670db4149b68fafa408bb5970e5aae37d
+Merge: c4149d0 32106ba
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Mar 5 10:21:16 2014 -0800
+
+    Merge branch 'master' of tux355:/usr/casc/hypre/warp/git/warp
+
+commit c4149d0cdbd85ad8d5bb308b8684f1ae22030ef9
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Mar 5 10:20:48 2014 -0800
+
+    Adding ability to save solution on different levels
+
+commit 32106ba734cfaafb922cbaed9d54920300d2ca9b
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Mar 4 15:26:29 2014 -0800
+
+    Modified PrintStats() to print per level statistics.
+
+commit 6f33f3b636c5458e6d26d366d28c324ea04c0f9b
+Merge: c1c1c6d 7ce79ae
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Mar 4 13:53:09 2014 -0800
+
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit c1c1c6d22a2712e68ef8b9057b951f67404bc70e
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Tue Mar 4 13:50:18 2014 -0800
+
+    Added timers to warp_Drive() and print wall time in PrintStats().
+    Added calls to user write routine from within FInterp() to make sure we give users access to the
+    best coarse level results and also provide access to coarsest level results.
+
+commit 7ce79ae38260a7126f1d3b0653e59e8897b242d5
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Mar 4 12:59:39 2014 -0800
+
+    Putting the save_grid_fcn() routine in its own file
+
+commit 078e6a3e0a754ec2091a28c50b24fe9fa6265aab
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Mar 4 11:07:52 2014 -0800
+
+    Modifying the time step calculation
+
+commit d51ceab1fa22ab3cdc03e490f92d2b59881a964b
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Mar 3 17:15:59 2014 -0800
+
+    Added a SetPrintFile() function and capability to redirect printf output to a user-defined file.
+    This is useful in settings when user code prints to stdout with no easy way to turn it off in a parallel
+    setting (e.g., sequential user code) except to redirect stdout to /dev/null.
+
+commit bee7b0ccd8f6277e242f61814990210cfcc7ba92
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Feb 26 10:56:36 2014 -0800
+
+    Forgot to add a file to the repo
+
+commit 104f61adefa0a174995ab6e0edde47c3c6637b22
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Tue Feb 25 15:04:34 2014 -0800
+
+    Viscous term added for periodic case
+
+commit a71822b8ba35f46cf057425cbe01559e6d20c9f4
+Merge: cc543cd b12c3cb
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Feb 20 09:27:20 2014 -0800
+
+    Merge branch 'master' of tux355:/usr/casc/hypre/warp/git/warp
+
+commit cc543cd9b1cf6d36605be634328b935125a7d6c9
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Feb 20 07:51:15 2014 -0800
+
+    Preparing for adding diffusion term, hyperdrive-01 broken
+
+commit b12c3cb88e6a4e314405e4c918d51a14ed206ed9
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 19 16:23:11 2014 -0800
+
+    Changing the scale variable in my_Coarsen in drive-05 back to 1/4.  Forgot this earlier
+
+commit 48966b2e00292e5eca3079848325d5c148a81627
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 19 15:24:01 2014 -0800
+
+    Changed the option in drive-04 that runs just a single warp_test.  Now,
+    just a single test is run, and that output is piped to GLVIS or to the screen,
+    depending on whether that test uses the write function.  To run other
+    warp tests (like TestSum, or TestDot), the user will have to comment in that
+    test, recompile and then run.  I think that this is how a typical user will
+    use these individual tests.
+    
+    The user can still do warp_TestAll in drive-04 to run all the tests at once
+    and get a boolean pass/fail flag.
+
+commit e0f7059b6585022a89feb78410c44dc18cb85f3c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 19 15:07:34 2014 -0800
+
+    Changed the tests that support returning a boolean pass/fail
+    flag.  This flag is now the return value, not a return value passed
+    by reference.  This will make for a little cleaner code.
+
+commit 8fabe415b8795b679833a4d7c8d6b6920210d177
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 19 10:53:19 2014 -0800
+
+    Added a scale variable in my_CoarsenBilinear() in drive-05.c  This variable lets you easily change the amount that scale restriction by.
+
+commit baec7e8cf2d1021e2650c76be252b29a0ffcf8dd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 14 15:58:27 2014 -0800
+
+    Simplified the interface to a couple warp_Test routines
+
+commit 78f2ed595e4d6bdaa94f1bfc6bb46cde403fc875
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 14 15:29:03 2014 -0800
+
+    added some warnings in TestDot informing the user when they have a 0 vector.  You can't test much when adding and subtracting 0 vector.
+
+commit 3961c27c458d14f56c839735e0b78a4596f379fa
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 14 13:57:00 2014 -0800
+
+    added a CommSplit routine, because this is copied and pasted code throughout all the drivers.  And, I think 99 percent of the time, the user will want to split comm_world in this manner.
+
+commit 2922096ecda9069e32e05ea7be54d21f0c01dc42
+Merge: 1587302 50e0364
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 14 13:10:43 2014 -0800
+
+    Merged master with local HEAD in order to commit the warp_Test* functions
+
+commit 15873021fae7bf7e0b38ac793fcdb9d8bd4b28e7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 14 13:05:17 2014 -0800
+
+    Moved the wrapper tests to warp_test.h and warp_test.c.  Also, added a TestAll routine that runs all the wrapper tests in succession, printing a message (and returning a boolean) indicating successful complemetion or failure
+
+commit 50e036479a0ca31b479243547e16f842d9faba69
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Feb 14 09:05:09 2014 -0800
+
+    Some name changes.
+
+commit fce6ebf1ac770ea839f7d25dbe2f23d939ffb9df
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Feb 13 21:27:57 2014 -0800
+
+    moved the warp_Test* routines to warp_test.c.  They are long functions and go better in a separate file.
+
+commit b61e1d4cc3d464b2b1062ecccd0c16fc3104d036
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Feb 13 13:56:41 2014 -0800
+
+    added a regression test in drive-05 that runs the wrapper tests
+
+commit 3c58e093c2ed56137124f5ea546ea5d55585b7a2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Feb 13 13:17:58 2014 -0800
+
+    added a test function for spatial coarsening and refinement.  the new function is now used in drive-05.c with the run_wrapper_tests options
+
+commit eca8498c837557a074a8c0d838bb9c129897a19a
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 12 11:32:40 2014 -0800
+
+    added warp_TestBuf
+
+commit 506e7e3437a39ab7f8dfaa68c1e5394f967f62fd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Feb 12 10:40:03 2014 -0800
+
+    added some warp_Test... routines for the users init, write, free, sum and dot routines
+
+commit 8b206b284840a45c758bfd71462d6ece2236308b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Feb 7 13:57:16 2014 -0800
+
+    added a check to halt warp if the residual norm is ever exactly 0.0.  There is a funny case where if the number of steps is less than 3 and a relative tolerance is used, then the first residual measured is 0 and the relative stopping criteria also becomes 0
+
+commit 39c1280986cb9d6a8aa3b55aa668b2a0eead9f5b
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Feb 5 12:53:33 2014 -0800
+
+    tested init, coarsen and refine routines
+
+commit bffc1c5a73f6e34b3281548d896e56a27f482880
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Jan 31 17:20:55 2014 -0800
+
+    Implemented coarsen and refine functions
+
+commit c184f97b04a4041a38b60310c54f0e660bd28347
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jan 31 11:06:08 2014 -0800
+
+    The integer values of write_level and print_level now
+    correspond, that is
+      write_level=0 means no writing and print_level=0 means no printing
+      write_level=1 means default writing and print_level=1 means default printing
+      write_level=2 means lots of writing and print_level=2 mean lots of printing
+
+commit 57381f5ab5cb9f5c028188a515401ffb78a7ee57
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Jan 31 09:42:46 2014 -0800
+
+    Updated the comments in warp.h for SetPrintLevel and SetWriteLevel
+    in order to make their functionality clearer.
+
+commit eef43476841a3b95eec187ba7bc6561da45d3403
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jan 23 14:00:12 2014 -0800
+
+    Added a few simple regression tests for SetPrintLevel and SetWriteLevel
+
+commit dd36f09edeebec26e8fdbd4322557b98426545dc
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jan 23 11:50:01 2014 -0800
+
+    Added new functionality for FWrite.  Essentially, a new structure called warp_Status is passed as a parameter to the user's write function.  The user then uses warp query functions like warp_GetStatusLevel(warp_Status status) to find out what level they're on.  This is a fairly extensible approach to giving the user more info in their write function.  Also, there is a new function warp_SetWriteLevel which sets how often the user's write function is called (0: only at the end, 1: every time FRestrict is called)
+
+commit 52905f0701bbceed6fa68bc93c0cbad9eda0bd73
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jan 22 11:40:28 2014 -0800
+
+    added a SetPrintLevel function, changed the drivers to use it instead of PrintStats
+
+commit 045f890a2c478bf03ef6cca17a15b08b19df283b
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jan 22 11:33:06 2014 -0800
+
+    added a second spatial restriction option to drive-05, allowing for either injection or the transpose of bilinear interpolation
+
+commit b2f409dae2272044cb709203e8bf6250099332ac
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Jan 17 17:11:28 2014 -0800
+
+    Copying the final solution to local structure
+
+commit 699e33ed406968548cb22123a1e7b209befaa1f1
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Fri Jan 17 14:24:07 2014 -0800
+
+    Implemented all user defined functions for hyperdrive-01
+
+commit 36863741169f4fba577b0cd6052b556755c19c65
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jan 9 17:00:29 2014 -0800
+
+    Updating the saved output for the valgrind memcheck-tux-jacob test.
+
+commit 966d2676ad3054e894b8236aa7af64372efa592c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jan 9 16:58:50 2014 -0800
+
+    fixed an error in the comments at the top of drive-02 and drive-03
+
+commit 5b42129c6e6269f9da72eb209a59fa5dc4dc7f54
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Jan 2 14:22:33 2014 -0800
+
+    fixed a small bug in the spatial interpolation in drive-05.  Then, I had to update diffusion2.saved for the regression tests to reflect the new driver.  Last, I changed the memcheck-tux-jacob.sh regression test because there was an issue related to valgrind error messages being in an unpredictable unordered in parallel.  Note printing to standard error with valgrind did not fix the problem.
+
+commit 92ead760f4e06c405dd9f54c59864fdde625e726
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 14:30:56 2013 -0800
+
+    Added a regression test that checks if the documentation compiles and generates reasonably sized PDFs.  This required some minor tweaks of the documenation Makefiel and doxygen .conf files to allow latex and doxygen to run through without stopping due to errors
+
+commit a4fd423d49efe57e89699315d7e60c05502be964
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 12:30:48 2013 -0800
+
+    added a tux regression test making sure that these commands all work: git pull, make clean and make.
+
+commit c81f821ef04035ec88bac054c137cacb9961535e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 11:46:13 2013 -0800
+
+    Added a valgrind based memory check regression test
+
+commit 9f8d25af4b8fc8b5bc0291f5f65cb4e35206f76d
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 11:45:28 2013 -0800
+
+    Fixed a little formatting in diffusion2D.sh.  Changed machine-tux.sh so that it loops over each regression test in a uniform way, rather than calling each test individually with repetitive code
+
+commit 941be0e3486a0e641ba68bf6f0a4c13b0a15863c
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 09:51:45 2013 -0800
+
+    Simplified the diffusion2D.sh regression test structure.  It should be a cleaner bash script now without repetitive code.  I also updated the test/README.md to reflect the new structure of the regression test file.
+
+commit c6d7474338e69e04cc2abf13f7e9267382a5dfdd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 09:50:59 2013 -0800
+
+    removed the filters functionality from test/test.sh.  Given how I've simplified the hypre regression testing, I don't think this functionality is that useful.
+
+commit 1c9152328a880ed491068db08c5eb3204927f633
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Dec 31 07:20:34 2013 -0800
+
+    Added a 'make valgrind=yes' option that allows for linking to the valgrind mpi wrappers.  You do still have to change the makefile.inc for your machine to add the libmpiwrap-???-linux.so to your LFLAGS
+
+commit a2ff11084ff5ef54eefa8185d687220e87a7a1cf
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 23 11:08:41 2013 -0800
+
+    changing warp_Float to warp_Real
+
+commit 222c8157e2f78d273f6be21290710b2fec7f8a2e
+Merge: 1097419 7196405
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Thu Dec 19 17:29:11 2013 -0800
+
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 1097419e2d2168f43918785dc2ff927a41b9a55d
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Thu Dec 19 17:29:04 2013 -0800
+
+    Adding Tzanio to the regression testing emails.
+
+commit 7196405592f1861c05f87c4e15042e81b87156db
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Dec 19 16:58:45 2013 -0800
+
+    cleaned up the spatial coarsening driver some, and fixed a bug related to not regenerating the SStruct grid and graph when needed
+
+commit aac3ac374067f92e56a57f4f419654eeff990ee7
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Dec 18 16:14:56 2013 -0800
+
+    Fixed some compilation problems
+
+commit dc8970c21f2c40bbb04b834288c0682eedbcccc0
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Dec 18 15:13:39 2013 -0800
+
+    ncluding machine dependent include file
+
+commit b05a3c91802fd5951f6b81f2294c3872f35513c0
+Merge: d96c7bf 66b27d4
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Dec 18 15:00:36 2013 -0800
+
+    Merge branch 'master' of tux355:/usr/casc/hypre/warp/git/warp
+
+commit d96c7bff69851837a43d41a3e905f4723585dcaa
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Dec 18 14:59:08 2013 -0800
+
+    First version of 4th order solver for ut+ux=f
+
+commit 66b27d49cf508bb8a4b2171b798e1c352a747866
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Dec 16 19:28:17 2013 -0800
+
+    Fixed a bug introduced in my last commit.
+    
+    In WarpApp::Write, distribute the input vector only when needed.
+
+commit a796827e57ba0d3e390fe2aa76e80f56c67363a5
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Dec 16 18:44:27 2013 -0800
+
+    Made sure that the mass and stiffness matrices have the same sparsity patterns
+    so the matrix addition works properly.
+    
+    Fixed two memory leaks and some visualization issues.
+
+commit 42a9d526a752938fe2ca34e889d509d1a134fbae
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 9 17:07:35 2013 -0800
+
+    fixed docs/Makefile to stop leaving behined a temporary refman.tex when make clean_latex is called
+
+commit 6e16df5aed26682970b38624f2b6da6ad3421fc3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 9 16:54:43 2013 -0800
+
+    modified makefile to use more platform independent sed command
+
+commit 6247a2dfde57aceb022670a8ccef4cdff7e161d2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 9 15:55:38 2013 -0800
+
+    Tweaked docs makefile to fix an old dependency on postprocess_latex
+
+commit bd1e2401acaa6d7331ad07817664c8a49591c0b3
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 9 15:53:40 2013 -0800
+
+    created documentation makefile and removed the script postprocess_latex.  This script's functionality is now in the makefile
+
+commit ec68387224c84f1c9158d4b7d689882bbd1926c2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Dec 9 10:46:34 2013 -0800
+
+    updated documentation of FRestrict and FInterp, plus changed the doxygen latex list environment
+
+commit fb90578d1c0ad2271d9fe20722c4a0d18797bf0c
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Fri Dec 6 09:45:03 2013 -0800
+
+    Removed the gzero parameter from drive-04.
+
+commit c427da7cb566c39a421d5e1faded09f687d12686
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Dec 5 14:23:16 2013 -0800
+
+    Removed the gzero parameter because it was not necessary
+
+commit 51a13676f803080f7f3f09f3066f211b7f228e31
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Dec 4 15:30:56 2013 -0800
+
+    Updated warp to accommodate a simple spatial coarsening driver driver-05.  Added a regression test on spatial coarsening as well
+
+commit 5acb7cf0d40d4e78f089fd547e1b0d69a41b9dd8
+Author: Falgout <falgout2@BLUEMAX.the-lab.llnl.gov>
+Date:   Tue Dec 3 13:31:12 2013 -0800
+
+    Added rfalgout to autotest email list.
+
+commit 11170e1db1e3d712a8d016a4ade90bdaf7e04272
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 26 14:16:54 2013 -0800
+
+    Added compilers for sierra in makefile.inc (hypre uses the intel compilers by default, so warp now does the same)
+
+commit c4efa5e7d0f429b8a27500591c56c673a3e4b44d
+Merge: 3957c48 ccdcd58
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 26 13:03:01 2013 -0800
+
+    Merging in changes to the /docs folder
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 3957c482904232a607d9249381cb09e6bd78c27f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 26 13:02:57 2013 -0800
+
+    Tidied up the docs folder.  docs/README.md discusses options for compiling your own doxygen, and the *.conf files were updated to exclude some files from the user manual.  Last, a script docs/postprocess_latex was added that will postprocess the doxygen latex in a good way.
+
+commit ccdcd58a485d390f1a3cf999c5b0970206115817
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Tue Nov 26 12:15:16 2013 -0800
+
+    Few small changes in drive-04: added an option to class ScalaODE
+    and a command-line option, -ode, to switch between the
+    LinearSystemODE and ScalarODE classes.
+
+commit 822139195f94f4e66f45c0623f2e52b51ad3de69
+Merge: b5c5013 51b2b91
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 26 11:02:40 2013 -0800
+
+    Merging warp_Set routines for spatial refinement and coarsening
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit b5c5013a5736b033df73fc38f6a50103db5f3123
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 26 11:02:35 2013 -0800
+
+    Added warp_Set routines for spatial coarsening and refinement
+
+commit 51b2b91170124fadef883039db3e12bf485f2383
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Nov 25 17:23:32 2013 -0800
+
+    Changes in examples/drive-04.cpp:
+    
+     - Added MFEM support for a class of implicit time integrators and incorporated
+       them in the example.
+    
+     - Extended the classes ScalarODE and LinearSystemODE to support the implicit
+       time integrators. The time-dependent and non-linear Phi in the ScalarODE
+       class appear to work with warp.
+    
+     - Modified the GLVis visualization in WarpApp::Write to show the solution at
+       the final time. Intermediate warp iterations will also be visualized if the
+       "write (visualize) intermediate warp iterations" code in warp_Drive is
+       enabled.
+    
+     - Added MFEM support for time-dependent coefficients and used them to define
+       time-dependent boundary conditions and source terms.
+    
+     - Added an exact solution and printing of the L2 error at the final time.
+    
+     - Added ParCSRMatrix functions for adding matrices and setting values.
+    
+     - Switched to zero (not random) values in the WarpApp::Init method.
+    
+     - Added command line options similar to the other drivers.
+
+commit e2b155d73cef75f39ecd1fe80a0ebf748b491a98
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Nov 25 16:56:58 2013 -0800
+
+    Added (commented out) option to write (visualize) intermediate warp iterations.
+
+commit 23a6559a058633695bd5be1ff94b388633d98a45
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Mon Nov 25 16:56:00 2013 -0800
+
+    Added dependence on the warp header files.
+
+commit 818fe7bc36e73bc91ad0745443e253b67d3053da
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 21 17:36:51 2013 -0800
+
+    tweaked the documentation to include the autotest instructions
+
+commit 8e60e4588fb0ff8e5ae147946a380962ac994417
+Merge: 03e6535 01e28d4
+Author: schroder2 <schroder2@tux343.llnl.gov>
+Date:   Wed Nov 20 15:13:02 2013 -0800
+
+    Merging changes made to the documentation.
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 03e65358334446dc2bd9e2329c41ca6e7e31367b
+Author: schroder2 <schroder2@tux343.llnl.gov>
+Date:   Wed Nov 20 15:12:38 2013 -0800
+
+    Updated the README.md files in each directory.  These files can be read as plain text, but the doxygen engine will also process them and place them in the manuals
+
+commit 01e28d403cf3837a8430a5f3c01e3f539b1d7ddd
+Author: schroder2 <schroder2@tux343.llnl.gov>
+Date:   Wed Nov 20 10:43:54 2013 -0800
+
+    Modified autotesh to correctly show me (Jacob) as the sender in the automatic emails
+
+commit 0413fccd2f2f46c381358e215062908331c0c7b0
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Nov 18 16:50:49 2013 -0800
+
+    Finished first skeleton of the regression testing framework
+
+commit 1a41e46fb723df5c9183a33b757d75b2c5f4bbc8
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Fri Nov 15 11:38:06 2013 -0800
+
+    refined the low level testing framework
+
+commit 4d2773e85be61f0540dce2b97a2a4ca563ee77cd
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 14 17:11:43 2013 -0800
+
+    Added first regression test, but still need an outer wrapper script to automaticaly call the tests and send out emails.  Some archiving of the test results would also be good
+
+commit d2730affcce37468b8cd75cf3d8c446d7cbacbf5
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Nov 14 15:19:26 2013 -0800
+
+    Reversed the logic such that debug=yes by default, also added compiler settings for the yorkville machine
+
+commit d62e6d5020a65cf3e80c0f1fb28c6e2dfbb34ca8
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 14 14:48:24 2013 -0800
+
+    After talking with Anders and Veselin, we've updated the makefiles a bit more to allow for specifying debug options and machine specific compile options.  See warp/Install.txt
+
+commit aa982455239b0fcebacdb257b369a7e26d1de83b
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Thu Nov 14 12:33:11 2013 -0800
+
+    Rule for building drive-01 without hyper
+
+commit 04bb64d4ecda7b202ecef079f5b30a7adcfaf468
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 14 08:53:49 2013 -0800
+
+    moved the zdist files to misc.
+
+commit 5c35e9a98fd72db81ad7fdb0f8f84c44dd8c2395
+Merge: 3ec8411 946502f
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Thu Nov 14 08:50:09 2013 -0800
+
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit 946502f6dc90b46cbf7d8580b345423092485062
+Author: Veselin Dobrev <dobrev@llnl.gov>
+Date:   Wed Nov 13 19:49:52 2013 -0800
+
+    Moved the drivers in a new examples/ directory.
+    
+    Changed the main Makefile: now it builds a separate WARP library file,
+    libwarp.a. The drivers are built by the examples/Makefile. Usage:
+      'make'                        --> build the library,
+      'make examples' or 'make all' --> build the library and the drivers,
+      'make clean'                  --> clean the library and the drivers.
+    
+    Renamed the CC and CXX variable to MPICC and MPICXX to allow customization
+    by setting the environment.
+
+commit 3ec8411579d5412d91200e7a933a1d4b146d2271
+Merge: a505dfd f1834f7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 17:23:18 2013 -0800
+
+    Merging minor changes made to /docs
+    Merge branch 'master' of /usr/casc/hypre/warp/git/warp
+
+commit a505dfded1643eca9deab473273dd662c4c0e3d2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 17:23:09 2013 -0800
+
+    minor doxygen changes
+
+commit f1834f762c6489420d2369421c441661a4aa492e
+Author: Anders Petersson <petersson1@llnl.gov>
+Date:   Wed Nov 13 16:16:22 2013 -0800
+
+    Optionally using predefined env. variables
+
+commit 84a9b9661f8fd726b6c487da3c41486765c2fdb7
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 12:01:33 2013 -0800
+
+    added a developer_manual.conf and user_manual.conf to build two separate doxygen manuals.  see docs/README on how to build the documentation
+
+commit c36d9834e001180d0cb3aafc331747dd8666a75e
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 11:45:38 2013 -0800
+
+    removed some compiler warnings due to unused variables
+
+commit d88272b9d6683fc9c9e9ecf06a95dc5a8d7f4b96
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 11:18:59 2013 -0800
+
+    forget to add makefile changes to include util.h and _warp.c
+
+commit 79f12cdd79e309a601ca4249099539fb59b3d635
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Nov 13 11:16:17 2013 -0800
+
+    split warp.c into warp.c and _warp.c.  added function headers for every function as needed to warp.h and _warp.h.  added a util.h.
+
+commit 7a98fb32a2ca418d73cc020d3c8120a68ce4f9b2
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 12 17:27:43 2013 -0800
+
+    added emacs, vi and a sample c code snippet to warp/misc
+
+commit a2b02872b77cc58e5358afcfc669e22bd0b855ad
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Tue Nov 12 16:21:47 2013 -0800
+
+    Updating the doxygen files in docs.  Also, added some example comments in warp.h and _warp.h
+
+commit 876ae8ba1e07f76fc90c626f4df04ae209d77f6a
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Mon Nov 11 15:18:24 2013 -0800
+
+    adding doxygen framework
+
+commit 9a6fe80661933e0aa2575529cde496c69d176810
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Mon Nov 4 17:43:34 2013 -0800
+
+    Added a simple MFEM driver.
+
+commit 986a1021dccc688cdb12f89ef002fe755681db1c
+Author: Tzanio <tzanio@llnl.gov>
+Date:   Mon Nov 4 17:42:29 2013 -0800
+
+    Updated after the multi-D SStruct changes.
+
+commit fb8962b2a0dd10d2bb7e3f504695bc55d0385501
+Author: Falgout <falgout2@BLUEMAX.the-lab.llnl.gov>
+Date:   Mon Nov 4 15:37:35 2013 -0800
+
+    Updating with notes from first code review
+
+commit abb6d036f7d14bdc20fe1434009fa35a66a35f18
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Sep 16 12:52:16 2013 -0700
+
+    Fixed some compiler warnings.
+
+commit b9e7f893c2603fe77388132e3588a4cf7332926f
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Fri Sep 13 15:44:50 2013 -0700
+
+    bug fixes to drivers
+
+commit d7d0f7f141ef6e6e4aef2534343dcb9521804020
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Fri Aug 30 15:29:58 2013 -0700
+
+    modified accuracy strategy for spatial solves for implicit time discretizations
+
+commit a8f0e04b876f5d7d1f8f832ab13987aef97e642d
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Wed Aug 21 11:26:33 2013 -0700
+
+    added file for GLVis visualization
+
+commit 2845ffa3caf68f22f86307fa11c60a51830167d9
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Wed Aug 21 11:24:02 2013 -0700
+
+    fixed accuracy issue of spatial solves, added GLVis visualization for 2D
+
+commit 8c4bf94e2f5cdd95734451064fd7a03684816b58
+Merge: e3f7b29 3a6c444
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Fri Aug 16 11:52:59 2013 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/git/warp
+
+commit 3a6c444db259159c26a28b5461e74432fe9325ae
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Fri Aug 16 11:40:53 2013 -0700
+
+    Added an "accuracy" parameter to Phi and changed the finest level calls in
+    FRestrict() to use "high accuracy" (accuracy = 0).  Maybe this isn't the best
+    name for this parameter, but we can change later.
+
+commit e3f7b29ff75b7135de66064ce0e8845d8cdad382
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Tue Aug 13 10:53:44 2013 -0700
+
+    fixed spatial MG iteration counts
+
+commit 03f9029e74dbc6fddd0c2f808c5739c44a7a1122
+Merge: 8f9dc43 923b7d7
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Mon Aug 12 15:43:50 2013 -0700
+
+    Merge branch 'master' of /usr/casc/hypre/git/warp
+    
+    Conflicts:
+            drive-02.c
+
+commit 8f9dc4316acaa0c36bf668e69b4e8b73636ad08a
+Author: friedhoff1 <friedhoff1@tuxblue6.llnl.gov>
+Date:   Mon Aug 12 15:35:21 2013 -0700
+
+    fixed spatial iteration counts
+
+commit 923b7d79419b34c512316c84ce437f74d78f7ade
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Aug 12 15:23:22 2013 -0700
+
+    Added FMG cycling.
+
+commit 13bf846ccc3c6a09e027c192a877b14f2dc7e2a3
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Aug 12 09:08:50 2013 -0700
+
+    Added flexibility to change the number of CF relaxations on each level.
+    Also added some unfinished code for FRefine() routine.
+
+commit baaf840d6b7427048ca166fc8c943f36989cd192
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Mon Aug 5 11:00:39 2013 -0700
+
+    Adding drive-03 routine after running it through Insure.
+
+commit 185f86b3896f8cd5261aadf0ad2337bb6145295c
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jul 31 14:45:59 2013 -0700
+
+    Changed PFMG parameters for faster spatial solve.
+
+commit b1c5107fd29677301bde98a4824a347b9e187e29
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jul 31 14:25:09 2013 -0700
+
+    Added a relative tolerance option.
+
+commit 6cbd40231f4ce497ea7a29b2d9be788b3c45dc39
+Author: Rob Falgout <rfalgout@llnl.gov>
+Date:   Wed Jul 31 12:46:21 2013 -0700
+
+    Fixed some memory problems and added a global communicator so that the
+    PrintStats() routine can print only once.  This global communicator could come
+    inhandy in other situations as well.
+
+commit b261d66ab18a0ed67a152676b83583366e85a365
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 31 11:24:47 2013 -0700
+
+    Committing a small change to znotes.txt as a test
+
+commit e3276791100a5fe8884a4f7d7af6daaa550088ad
+Author: Jacob Schroder <schroder2@llnl.gov>
+Date:   Wed Jul 31 11:03:51 2013 -0700
+
+    Initializing Warp repository for parallel-in-time code
